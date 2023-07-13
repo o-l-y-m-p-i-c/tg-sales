@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './cafe.css'
 // import { createContext } from 'react';
 
@@ -47,19 +47,19 @@ function App() {
 
 
   function setThemeClass() {
-    document.documentElement.className = window.Telegram.WebApp.colorScheme;
+    // document.documentElement.className = window.Telegram.WebApp.colorScheme;
   }
 
   const handleClick = (e) => {
     setCounter({ ...counter, number: ++counter.number })
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+    // window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
   }
 
 
 
-  useEffect(() => {
-    // init()
-  }, [])
+  // useEffect(() => {
+  // init()
+  // }, [])
 
   return (
     // <IContext.Provider value={{ IState, setIState }}>
