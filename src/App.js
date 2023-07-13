@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import './cafe.css'
-import { createContext } from 'react';
+// import { createContext } from 'react';
 
 
-const IContext = createContext({})
+// const IContext = createContext({})
 
 
 
@@ -52,7 +52,7 @@ function App() {
 
   const handleClick = (e) => {
     setCounter({ ...counter, number: ++counter.number })
-    // window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
   }
 
 
@@ -62,18 +62,18 @@ function App() {
   }, [])
 
   return (
-    <IContext.Provider value={{ IState, setIState }}>
-      <div className="App">
-        Hi all
-        <p>
-          {counter.number}
-        </p>
-        <button onClick={handleClick}>
-          Test click
-        </button>
-      </div>
+    // <IContext.Provider value={{ IState, setIState }}>
+    <div className="App">
+      Hi all
+      <p>
+        {counter.number}
+      </p>
+      <button onClick={handleClick}>
+        Test click
+      </button>
+    </div>
 
-    </IContext.Provider>
+    // </IContext.Provider> 
 
 
 
