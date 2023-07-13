@@ -58,14 +58,8 @@ function App() {
   }
 
   useEffect(() => {
-    if (navigationLength > 0) {
-      window.Telegram.WebApp.BackButton.show();
-      window.Telegram.WebApp.BackButton.onClick(handleGoBack)
-    } else {
-      window.Telegram.WebApp.BackButton.hide();
-    }
-    // eslint-disable-next-line
-  }, [navigationLength])
+    window.Telegram.WebApp.BackButton.onClick(handleGoBack)
+  })
 
 
   function close() {
