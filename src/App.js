@@ -9,21 +9,21 @@ import './cafe.css'
 
 
 function App() {
-  const [IState, setIState] = useState({
-    canPay: true,
-    modeOrder: true,
-    totalPrice: 29,
-    apiUrl: '',
-    userId: '',
-    userHash: '',
-    debug: false,
-    order_data: [],
-    comment: '',
-    price: 0
-  })
-  let [counter, setCounter] = useState({
-    number: 0
-  })
+  // const [IState, setIState] = useState({
+  //   canPay: true,
+  //   modeOrder: true,
+  //   totalPrice: 29,
+  //   apiUrl: '',
+  //   userId: '',
+  //   userHash: '',
+  //   debug: false,
+  //   order_data: [],
+  //   comment: '',
+  //   price: 0
+  // })
+  // let [counter, setCounter] = useState({
+  //   number: 0
+  // })
 
 
 
@@ -65,12 +65,12 @@ function App() {
     // <IContext.Provider value={{ IState, setIState }}>
     <div className="App">
       Hi all
-      <p>
+      {/* <p>
         {counter.number}
       </p>
       <button >
         Test click
-      </button>
+      </button> */}
     </div>
 
     // </IContext.Provider> 
