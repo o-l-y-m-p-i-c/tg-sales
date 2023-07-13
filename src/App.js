@@ -61,8 +61,9 @@ function App() {
   }
 
   useEffect(() => {
+    window.Telegram.WebApp.BackButton.onClick(handleGoBack)
+    // window.addEventListener('Telegram.WebApp.BackButton', handleGoBack);
 
-    window.addEventListener('Telegram.WebApp.BackButton', handleGoBack);
     // eslint-disable-next-line
   }, []);
 
