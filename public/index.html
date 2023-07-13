@@ -24,6 +24,14 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+  <script>
+    function setThemeClass() {
+      document.documentElement.className = Telegram.WebApp.colorScheme;
+    }
+
+    Telegram.WebView.onEvent('theme_changed', setThemeClass);
+    setThemeClass();
+  </script>
   <title>React App</title>
 </head>
 
