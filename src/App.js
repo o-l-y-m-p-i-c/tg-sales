@@ -32,9 +32,9 @@ function App() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    document.documentElement.style.setProperty('bg_color', themeParams.bg_color);
-    document.documentElement.style.setProperty('text_color', themeParams.text_color);
-    document.documentElement.style.setProperty('button_color', themeParams.button_color);
+    document.documentElement.style.setProperty('--bg_color', themeParams.bg_color);
+    document.documentElement.style.setProperty('--text_color', themeParams.text_color);
+    document.documentElement.style.setProperty('--button_color', themeParams.button_color);
 
     alert(JSON.stringify(themeParams));
 
