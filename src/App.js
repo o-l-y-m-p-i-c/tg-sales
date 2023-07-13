@@ -27,12 +27,13 @@ function App() {
       color: '#31b545'
     }).hideProgress();
     window.Telegram.WebApp.BackButton.show();
-    window.Telegram.WebApp.BackButton.onClick(navigate.length > 2 ? () => navigate(-1) : window.Telegram.WebApp.BackButton.hide())
     window.Telegram.WebApp.MainButton.onClick(close)
 
   }
 
-
+  useEffect(() => {
+    window.Telegram.WebApp.BackButton.onClick(navigate.length > 2 ? () => navigate(-1) : window.Telegram.WebApp.BackButton.hide())
+  })
 
 
   function close() {
