@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import './cafe.css'
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { ProductPage } from './pages/ProductPage/index';
 import { CategoriePage } from "./pages/CategoriePage";
 import { CartPage } from "./pages/CartPage";
@@ -8,15 +8,41 @@ import { ProductListPage } from "./pages/ProductListPage";
 import { useNavigate } from 'react-router-dom';
 
 
+
 function App() {
 
   let [counter, setCounter] = useState(Number(0))
+  const [navigationLength, setNavigationLength] = useState(0);
+
+
+
+  const location = useLocation();
   let navigate = useNavigate();
 
-  console.log(navigate)
 
   // eslint-disable-next-line
   useEffect(() => { init() }, [])
+
+  const handleGoBack = () => {
+    if (
+      navigationLength > 0
+    ) {
+      navigate(-1);
+      setNavigationLength(prevLength => prevLength - 1);
+    } else {
+      navigate('/Categories');
+    }
+  };
+
+  const handleGoForward = (e) => {
+    let currentPage = location.pathname.split('/')
+    currentPage = currentPage.length >= 1 ? currentPage[1] : 'Categories'
+
+    if (currentPage !== e.currentTarget.getAttribute('to')) {
+      navigate(e.currentTarget.getAttribute('to'));
+      setNavigationLength(prevLength => prevLength + 1);
+    }
+  };
 
 
   function init() {
@@ -32,8 +58,14 @@ function App() {
   }
 
   useEffect(() => {
-    window.Telegram.WebApp.BackButton.onClick(navigate.length > 2 ? () => navigate(-1) : window.Telegram.WebApp.BackButton.hide())
-  })
+    if (navigationLength > 0) {
+      window.Telegram.WebApp.BackButton.show();
+      window.Telegram.WebApp.BackButton.onClick(handleGoBack)
+    } else {
+      window.Telegram.WebApp.BackButton.hide();
+    }
+    // eslint-disable-next-line
+  }, [navigationLength])
 
 
   function close() {
@@ -54,9 +86,9 @@ function App() {
     <>
       <header>
         <ul>
-          <li><Link to="Categories">Categories</Link></li>
-          <li><Link to="ProductListPage">ProductListPage</Link></li>
-          <li><Link to="Cart">Cart</Link></li>
+          <li to="Categories" onClick={handleGoForward}>Categories</li>
+          <li to="ProductListPage" onClick={handleGoForward}>ProductListPage</li>
+          <li to="Cart" onClick={handleGoForward}>Cart</li>
         </ul>
       </header>
       <Routes>
@@ -64,9 +96,10 @@ function App() {
         <Route path="/Product" element={<ProductPage props={{ navigate }} />} />
         <Route path="/ProductListPage" element={<ProductListPage props={{ navigate }} />} />
         <Route path="/Categories" element={<CategoriePage ops={{ navigate }} />} />
-        <Route path="/Cart" element={<CartPage props={{ navigate }} />} />
+        <Route path="/Cart/:id" element={<CartPage props={{ navigate }} />} />
         <Route path="*" element={<CategoriePage props={{ navigate }} />} />
       </Routes>
+      {navigationLength > 0 && <button onClick={handleGoBack}>back</button>}
 
       hello
       <p>{counter}</p>
