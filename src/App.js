@@ -59,7 +59,7 @@ function App() {
 
 
   useEffect(() => {
-    init()
+    // init()
   }, [])
 
   return (
