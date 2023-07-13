@@ -6,6 +6,8 @@ import { CategoriePage } from "./pages/CategoriePage";
 import { CartPage } from "./pages/CartPage";
 import { ProductListPage } from "./pages/ProductListPage";
 import { useNavigate } from 'react-router-dom';
+import { BackButton } from '@vkruglikov/react-telegram-web-app';
+
 
 
 
@@ -41,7 +43,7 @@ function App() {
     if (currentPage !== e.currentTarget.getAttribute('to')) {
       navigate(e.currentTarget.getAttribute('to'));
       setNavigationLength(prevLength => prevLength + 1);
-      window.Telegram.WebApp.BackButton.show();
+      // window.Telegram.WebApp.BackButton.show();
     }
   };
 
@@ -54,7 +56,7 @@ function App() {
       color: '#31b545'
     }).hideProgress();
     // window.Telegram.WebApp.BackButton.show();
-    window.Telegram.WebApp.MainButton.onClick(close)
+    // window.Telegram.WebApp.MainButton.onClick(close)
 
   }
 
@@ -65,18 +67,18 @@ function App() {
     if (
       navigationLength > 0
     ) {
-      window.Telegram.WebApp.MainButton.show()
-      window.Telegram.WebApp.BackButton.onClick(handleGoBack)
+      // window.Telegram.WebApp.MainButton.show()
+      // window.Telegram.WebApp.BackButton.onClick(handleGoBack)
     } else {
-      window.Telegram.WebApp.MainButton.hide()
+      // window.Telegram.WebApp.MainButton.hide()
     }
     // eslint-disable-next-line
   }, [navigationLength])
 
 
-  function close() {
-    window.Telegram.WebApp.close()
-  }
+  // function close() {
+  // window.Telegram.WebApp.close()
+  // }
 
 
 
@@ -90,6 +92,8 @@ function App() {
 
   return (
     <>
+      {navigationLength > 0 && <BackButton onClick={() => handleGoBack} />}
+
       <header>
         <ul>
           <li to="Categories" onClick={handleGoForward}>Categories</li>
