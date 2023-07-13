@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 function App() {
+
+  let [counter, setCounter] = useState(Number(0))
 
   console.log(window.Telegram.WebApp)
 
@@ -28,10 +30,19 @@ function App() {
     window.Telegram.WebApp.close()
   }
 
+
+
+  const handleClick = () => {
+    setCounter(++counter)
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+
+  }
   return (
     <>
       hello
-
+      <button onClick={handleClick}>
+        Click tribble
+      </button>
     </>
   );
 }
