@@ -96,7 +96,7 @@ function App() {
         <Route path="/Product" element={<ProductPage props={{ navigate }} />} />
         <Route path="/ProductListPage" element={<ProductListPage props={{ navigate }} />} />
         <Route path="/Categories" element={<CategoriePage ops={{ navigate }} />} />
-        <Route path="/Cart/:id" element={<CartPage props={{ navigate }} />} />
+        <Route path="/Cart" element={<CartPage props={{ navigate }} />} />
         <Route path="*" element={<CategoriePage props={{ navigate }} />} />
       </Routes>
       {navigationLength > 0 && <button onClick={handleGoBack}>back</button>}
