@@ -92,7 +92,7 @@ function App() {
 
   return (
     <>
-      {navigationLength > 0 && <BackButton onClick={() => handleGoBack} />}
+      {navigationLength > 0 && <BackButton onClick={handleGoBack} />}
 
       <header>
         <ul>
