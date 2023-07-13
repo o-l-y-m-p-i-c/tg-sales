@@ -63,10 +63,6 @@ function App() {
   useEffect(() => {
 
     window.addEventListener('Telegram.WebApp.BackButton', handleGoBack);
-
-    return () => {
-      window.removeEventListener('Telegram.WebApp.BackButton', handleGoBack);
-    };
     // eslint-disable-next-line
   }, []);
 
