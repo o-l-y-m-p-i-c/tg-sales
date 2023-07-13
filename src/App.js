@@ -50,10 +50,10 @@ function App() {
     // document.documentElement.className = window.Telegram.WebApp.colorScheme;
   }
 
-  const handleClick = (e) => {
-    setCounter({ ...counter, number: ++counter.number })
-    // window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
-  }
+  // const handleClick = (e) => {
+  // setCounter({ ...counter, number: ++counter.number })
+  // window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+  // }
 
 
 
@@ -68,7 +68,7 @@ function App() {
       <p>
         {counter.number}
       </p>
-      <button onClick={handleClick}>
+      <button >
         Test click
       </button>
     </div>
