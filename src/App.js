@@ -43,6 +43,7 @@ function App() {
     if (currentPage !== e.currentTarget.getAttribute('to')) {
       navigate(e.currentTarget.getAttribute('to'));
       setNavigationLength(prevLength => prevLength + 1);
+      window.Telegram.WebApp.BackButton.show();
     }
   };
 
