@@ -10,7 +10,7 @@ function App() {
   const init = () => {
     window.Telegram.WebApp.ready();
     window.Telegram.WebApp.MainButton.setParams({
-      is_visible: !!IState.canPay,
+      is_visible: true,
       text: 'VIEW ORDER',
       color: '#31b545'
     }).hideProgress();
