@@ -7,7 +7,7 @@ function App() {
 
 
 
-  const init = () => {
+  function init() {
     window.Telegram.WebApp.ready();
     window.Telegram.WebApp.MainButton.setParams({
       is_visible: true,
@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     init()
-  }, [])
+  })
 
   function close() {
     window.Telegram.WebApp.close()
