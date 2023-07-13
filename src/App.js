@@ -36,7 +36,7 @@ function App() {
     document.documentElement.style.setProperty('--text_color', themeParams.text_color);
     document.documentElement.style.setProperty('--button_color', themeParams.button_color);
 
-    alert(JSON.stringify(themeParams));
+    // alert(JSON.stringify(themeParams));
 
     // eslint-disable-next-line
   }, [])

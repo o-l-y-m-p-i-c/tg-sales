@@ -2,7 +2,22 @@
     margin-top: 10px;
     background-color: pink;
     display: flex;
+    flex-direction: column;
     min-height: 20vh;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+
+.swiper img {
+    max-width: 100%;
+}
+
+.swiperContainer {
+    margin-top: 40px;
+}
+
+.swiper .swiperContainer:first-child {
+    margin-top: 0px;
 }
