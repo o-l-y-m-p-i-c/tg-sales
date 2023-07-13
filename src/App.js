@@ -56,6 +56,12 @@ function App() {
     // window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
   }
 
+
+
+  useEffect(() => {
+    init()
+  }, [])
+
   return (
     <IContext.Provider value={{ IState, setIState }}>
       <div className="App">
@@ -75,10 +81,5 @@ function App() {
   );
 }
 
-
-
-useEffect(() => {
-  init()
-}, [])
 
 export default App;
