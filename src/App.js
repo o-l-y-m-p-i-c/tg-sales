@@ -6,7 +6,8 @@ import { CategoriePage } from "./pages/CategoriePage";
 import { CartPage } from "./pages/CartPage";
 import { ProductListPage } from "./pages/ProductListPage";
 import { useNavigate } from 'react-router-dom';
-import { BackButton } from '@vkruglikov/react-telegram-web-app';
+import { BackButton, MainButton } from '@vkruglikov/react-telegram-web-app';
+import { AnimatePresence } from 'framer-motion'
 
 
 
@@ -15,7 +16,13 @@ function App() {
 
   let [counter, setCounter] = useState(Number(0))
   const [navigationLength, setNavigationLength] = useState(0);
-
+  // eslint-disable-next-line
+  const [mainButtonSettings, setMainButtonSettings] = useState({
+    text: "View order",
+    show: true,
+    color: '#63C470',
+    textColor: '#FFFFFF'
+  })
 
 
   const location = useLocation();
@@ -24,6 +31,25 @@ function App() {
 
   // eslint-disable-next-line
   useEffect(() => { init() }, [])
+
+  function init() {
+    window.Telegram.WebApp.ready();
+  }
+
+  const handleClick = () => {
+    setCounter(++counter)
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+  }
+
+  const handleGoForward = (e) => {
+    let currentPage = location.pathname.split('/')
+    currentPage = currentPage.length >= 1 ? currentPage[1] : 'Categories'
+
+    if (currentPage !== e.currentTarget.getAttribute('to')) {
+      navigate(e.currentTarget.getAttribute('to'));
+      setNavigationLength(prevLength => prevLength + 1);
+    }
+  };
 
   const handleGoBack = () => {
     if (
@@ -36,63 +62,24 @@ function App() {
     }
   };
 
-  const handleGoForward = (e) => {
-    let currentPage = location.pathname.split('/')
-    currentPage = currentPage.length >= 1 ? currentPage[1] : 'Categories'
 
-    if (currentPage !== e.currentTarget.getAttribute('to')) {
-      navigate(e.currentTarget.getAttribute('to'));
-      setNavigationLength(prevLength => prevLength + 1);
-      // window.Telegram.WebApp.BackButton.show();
+  const switchMainButtonClick = () => {
+    switch (mainButtonSettings.text) {
+      case "View order": {
+        window.Telegram.WebApp.close()
+        break;
+      }
+      default: {
+        alert("No event for button")
+        // window.Telegram.WebApp.close()
+      }
     }
-  };
-
-
-  function init() {
-    window.Telegram.WebApp.ready();
-    window.Telegram.WebApp.MainButton.setParams({
-      is_visible: true,
-      text: 'VIEW ORDER',
-      color: '#31b545'
-    }).hideProgress();
-    // window.Telegram.WebApp.BackButton.show();
-    // window.Telegram.WebApp.MainButton.onClick(close)
-
   }
-
-
-
-  useEffect(() => {
-
-    if (
-      navigationLength > 0
-    ) {
-      // window.Telegram.WebApp.MainButton.show()
-      // window.Telegram.WebApp.BackButton.onClick(handleGoBack)
-    } else {
-      // window.Telegram.WebApp.MainButton.hide()
-    }
-    // eslint-disable-next-line
-  }, [navigationLength])
-
-
-  // function close() {
-  // window.Telegram.WebApp.close()
-  // }
-
-
-
-  const handleClick = () => {
-    setCounter(++counter)
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
-  }
-
-
-
 
   return (
     <>
       {navigationLength > 0 && <BackButton onClick={handleGoBack} />}
+      {mainButtonSettings.show && <MainButton text={mainButtonSettings.text} progress="" textColor={mainButtonSettings.textColor} color={mainButtonSettings.color} onClick={switchMainButtonClick} />}
 
       <header>
         <ul>
@@ -101,21 +88,27 @@ function App() {
           <li to="Cart" onClick={handleGoForward}>Cart</li>
         </ul>
       </header>
-      <Routes>
-        <Route path="/" element={<CategoriePage props={{ navigate }} />} />
-        <Route path="/Product" element={<ProductPage props={{ navigate }} />} />
-        <Route path="/ProductListPage" element={<ProductListPage props={{ navigate }} />} />
-        <Route path="/Categories" element={<CategoriePage ops={{ navigate }} />} />
-        <Route path="/Cart" element={<CartPage props={{ navigate }} />} />
-        <Route path="*" element={<CategoriePage props={{ navigate }} />} />
-      </Routes>
       {navigationLength > 0 && <button onClick={handleGoBack}>back</button>}
+      <p>
+        hello
+      </p>
 
-      hello
       <p>{counter}</p>
       <button onClick={handleClick}>
         Click tribble
       </button>
+      <AnimatePresence>
+        <Routes>
+          <Route path="/" element={<CategoriePage props={{ navigate }} />} />
+          <Route path="/Product" element={<ProductPage props={{ navigate }} />} />
+          <Route path="/ProductListPage" element={<ProductListPage props={{ navigate }} />} />
+          <Route path="/Categories" element={<CategoriePage ops={{ navigate }} />} />
+          <Route path="/Cart" element={<CartPage props={{ navigate }} />} />
+          <Route path="*" element={<CategoriePage props={{ navigate }} />} />
+        </Routes>
+      </AnimatePresence>
+
+
     </>
   );
 }

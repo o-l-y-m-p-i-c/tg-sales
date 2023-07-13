@@ -1,0 +1,8 @@
+.page {
+    margin-top: 10px;
+    background-color: pink;
+    display: flex;
+    min-height: 20vh;
+    justify-content: center;
+    align-items: center;
+}
