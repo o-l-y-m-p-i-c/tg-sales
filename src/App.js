@@ -27,11 +27,9 @@ function App() {
     if (
       navigationLength > 0
     ) {
-      window.Telegram.WebApp.BackButton.show();
       navigate(-1);
       setNavigationLength(prevLength => prevLength - 1);
     } else {
-      window.Telegram.WebApp.BackButton.hide();
       navigate('/Categories');
     }
   };
@@ -60,12 +58,20 @@ function App() {
 
   }
 
-  useEffect(() => {
-    window.Telegram.WebApp.BackButton.onClick(handleGoBack)
-    // window.addEventListener('Telegram.WebApp.BackButton', handleGoBack);
 
+
+  useEffect(() => {
+
+    if (
+      navigationLength > 0
+    ) {
+      window.Telegram.WebApp.MainButton.show()
+      window.Telegram.WebApp.BackButton.onClick(handleGoBack)
+    } else {
+      window.Telegram.WebApp.MainButton.hide()
+    }
     // eslint-disable-next-line
-  }, []);
+  }, [navigationLength])
 
 
   function close() {
