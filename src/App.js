@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-
+import './cafe.css'
 
 function App() {
 
   let [counter, setCounter] = useState(Number(0))
-
-
-  console.log(window.Telegram.WebApp)
-
+  // eslint-disable-next-line
+  useEffect(() => { init() }, [])
 
 
   function init() {
@@ -22,8 +20,7 @@ function App() {
     window.Telegram.WebApp.MainButton.onClick(close)
 
   }
-  // eslint-disable-next-line
-  useEffect(() => { init() }, [])
+
 
   function close() {
     window.Telegram.WebApp.close()
@@ -34,11 +31,15 @@ function App() {
   const handleClick = () => {
     setCounter(++counter)
     window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
-
   }
+
+
+
+
   return (
     <>
       hello
+      <p>{counter}</p>
       <button onClick={handleClick}>
         Click tribble
       </button>
