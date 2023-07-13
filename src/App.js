@@ -6,13 +6,16 @@ import { CategoriePage } from "./pages/CategoriePage";
 import { CartPage } from "./pages/CartPage";
 import { ProductListPage } from "./pages/ProductListPage";
 import { useNavigate } from 'react-router-dom';
-import { BackButton, MainButton } from '@vkruglikov/react-telegram-web-app';
+import { BackButton, MainButton, useThemeParams } from '@vkruglikov/react-telegram-web-app';
 import { AnimatePresence } from 'framer-motion'
 
 
 
 
+
 function App() {
+  // eslint-disable-next-line
+  const [colorScheme, themeParams] = useThemeParams();
 
   let [counter, setCounter] = useState(Number(0))
   const [navigationLength, setNavigationLength] = useState(0);
@@ -28,7 +31,12 @@ function App() {
   const location = useLocation();
   let navigate = useNavigate();
 
-
+  useEffect(() => {
+    document.documentElement.style.setProperty('bg_color', themeParams.bg_color);
+    document.documentElement.style.setProperty('text_color', themeParams.text_color);
+    document.documentElement.style.setProperty('button_color', themeParams.button_color);
+    // eslint-disable-next-line
+  }, [])
   // eslint-disable-next-line
   useEffect(() => { init() }, [])
 
@@ -88,7 +96,7 @@ function App() {
           <li style={{ color: 'var(--text-color)' }} to="Cart" onClick={handleGoForward}>Cart</li>
         </ul>
       </header>
-      {/* {navigationLength > 0 && <button onClick={handleGoBack}>back</button>} */}
+      {navigationLength > 0 && <button onClick={handleGoBack}>back</button>}
       <p>
         hello
       </p>
