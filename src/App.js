@@ -5,6 +5,7 @@ function App() {
 
   let [counter, setCounter] = useState(Number(0))
 
+
   console.log(window.Telegram.WebApp)
 
 
@@ -21,10 +22,8 @@ function App() {
     window.Telegram.WebApp.MainButton.onClick(close)
 
   }
-
-  useEffect(() => {
-    init()
-  })
+  // eslint-disable-next-line
+  useEffect(() => { init() }, [])
 
   function close() {
     window.Telegram.WebApp.close()
