@@ -27,10 +27,6 @@ function App() {
   })
 
 
-  useEffect(() => {
-    init()
-  }, [])
-
 
   const init = () => {
 
@@ -78,5 +74,11 @@ function App() {
 
   );
 }
+
+
+
+useEffect(() => {
+  init()
+}, [])
 
 export default App;
