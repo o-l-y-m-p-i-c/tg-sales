@@ -83,9 +83,9 @@ function App() {
 
       <header>
         <ul>
-          <li to="Categories" onClick={handleGoForward}>Categories</li>
-          <li to="ProductListPage" onClick={handleGoForward}>ProductListPage</li>
-          <li to="Cart" onClick={handleGoForward}>Cart</li>
+          <li style={{ color: 'var(--text-color)' }} to="Categories" onClick={handleGoForward}>Categories</li>
+          <li style={{ color: 'var(--text-color)' }} to="ProductListPage" onClick={handleGoForward}>ProductListPage</li>
+          <li style={{ color: 'var(--text-color)' }} to="Cart" onClick={handleGoForward}>Cart</li>
         </ul>
       </header>
       {/* {navigationLength > 0 && <button onClick={handleGoBack}>back</button>} */}
