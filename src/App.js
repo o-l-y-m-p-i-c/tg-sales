@@ -35,6 +35,9 @@ function App() {
     document.documentElement.style.setProperty('bg_color', themeParams.bg_color);
     document.documentElement.style.setProperty('text_color', themeParams.text_color);
     document.documentElement.style.setProperty('button_color', themeParams.button_color);
+
+    alert(JSON.stringify(themeParams));
+
     // eslint-disable-next-line
   }, [])
   // eslint-disable-next-line
@@ -100,6 +103,8 @@ function App() {
       <p>
         hello
       </p>
+
+      {/* {themeParams !== undefined ? JSON.parse(themeParams).toString() : ''} */}
 
       <p>{counter}</p>
       <button onClick={handleClick}>
