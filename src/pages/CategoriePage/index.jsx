@@ -29,10 +29,10 @@ export const CategoriePage = () => {
                     // onSlideChange={() => console.log('slide change')}
                     // onSwiper={(swiper) => console.log(swiper)}
                     >
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
 
                     </Swiper>
 
@@ -46,10 +46,10 @@ export const CategoriePage = () => {
                     // onSlideChange={() => console.log('slide change')}
                     // onSwiper={(swiper) => console.log(swiper)}
                     >
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
 
                     </Swiper>
 
@@ -63,10 +63,10 @@ export const CategoriePage = () => {
                     // onSlideChange={() => console.log('slide change')}
                     // onSwiper={(swiper) => console.log(swiper)}
                     >
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
-                        <SwiperSlide><picture><source srcSet='http://localhost:3000/assets/img/1.png' /><img src="http://localhost:3000/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
+                        <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>
 
                     </Swiper>
                 </div>
