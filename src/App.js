@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import './cafe.css'
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import { ProductPage } from './pages/ProductPage/index';
 import { CategoriePage } from "./pages/CategoriePage";
 import { CartPage } from "./pages/CartPage";
@@ -17,7 +17,7 @@ function App() {
   // eslint-disable-next-line
   const [colorScheme, themeParams] = useThemeParams();
 
-  let [counter, setCounter] = useState(Number(0))
+  // let [counter, setCounter] = useState(Number(0))
   const [navigationLength, setNavigationLength] = useState(0);
   // eslint-disable-next-line
   const [mainButtonSettings, setMainButtonSettings] = useState({
@@ -47,10 +47,10 @@ function App() {
     window.Telegram.WebApp.ready();
   }
 
-  const handleClick = () => {
-    setCounter(++counter)
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
-  }
+  // const handleClick = () => {
+  //   setCounter(++counter)
+  //   window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+  // }
 
   const handleGoForward = (e) => {
     let currentPage = location.pathname.split('/')
@@ -116,11 +116,11 @@ function App() {
       </main>
       <footer>
         <div className="footer container">
-          <p>By continuing to this site, you agree to our terms and conditions. <a href="#">TelegramSales.com</a> (SIA Silver Spoon) is not responsible for any content published above. In case of dispute, please contact seller</p>
+          <p>By continuing to this site, you agree to our terms and conditions. <Link to="#">TelegramSales.com</Link> (SIA Silver Spoon) is not responsible for any content published above. In case of dispute, please contact seller</p>
           <ul>
-            <li><a href="#">Privacy policy</a></li>
-            <li><a href="#">Terms and Conditions</a></li>
-            <li><a href="#">Made with TelegramSales.com</a></li>
+            <li><Link to="#">Privacy policy</Link></li>
+            <li><Link to="#">Terms and Conditions</Link></li>
+            <li><Link to="#">Made with TelegramSales.com</Link></li>
           </ul>
         </div>
 

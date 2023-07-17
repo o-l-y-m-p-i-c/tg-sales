@@ -1,5 +1,5 @@
 import styles from './style.module.scss'
-import Carusel from '../Carusel/index';
+// import Carusel from '../Carusel/index';
 import { useState } from 'react';
 
 import minus from './../../assets/svg/Minus.svg';

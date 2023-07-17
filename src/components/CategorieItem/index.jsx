@@ -1,15 +1,15 @@
 import styles from './style.module.scss'
-import Carusel from '../Carusel/index';
-import { useState } from 'react';
+// import Carusel from '../Carusel/index';
+// import { useState } from 'react';
 
-import minus from './../../assets/svg/Minus.svg';
-import plus from './../../assets/svg/Plus.svg';
+// import minus from './../../assets/svg/Minus.svg';
+// import plus from './../../assets/svg/Plus.svg';
 import { useNavigate } from 'react-router-dom';
 
 const CategorieItem = ({ props }) => {
     const navigation = useNavigate()
 
-    const [count, setCount] = useState(0)
+    // const [count, setCount] = useState(0)
 
 
 
