@@ -62,6 +62,10 @@ body.closed .cafe-page {
   box-shadow: 0 0.5px rgba(0, 0, 0, .07);
 }
 
+.swiper-slide {
+  /* min-width: 100% !important; */
+}
+
 .cafe-items {
   display: flex;
   flex-wrap: wrap;

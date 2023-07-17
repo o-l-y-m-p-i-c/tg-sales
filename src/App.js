@@ -95,32 +95,36 @@ function App() {
       <header>
         <ul>
           <li style={{ color: 'var(--text-color)' }} to="Categories" onClick={handleGoForward}>Categories</li>
-          <li style={{ color: 'var(--text-color)' }} to="ProductListPage" onClick={handleGoForward}>ProductListPage</li>
+          <li style={{ color: 'var(--text-color)' }} to="ProductList" onClick={handleGoForward}>ProductListPage</li>
           <li style={{ color: 'var(--text-color)' }} to="Cart" onClick={handleGoForward}>Cart</li>
         </ul>
       </header>
-      {navigationLength > 0 && <button onClick={handleGoBack}>back</button>}
-      <p>
-        hello
-      </p>
+      {/* {navigationLength > 0 && <button onClick={handleGoBack}>back</button>} */}
+      <main>
 
-      {/* {themeParams !== undefined ? JSON.parse(themeParams).toString() : ''} */}
 
-      <p>{counter}</p>
-      <button onClick={handleClick}>
-        Click tribble
-      </button>
-      <AnimatePresence>
-        <Routes>
-          <Route path="/" element={<CategoriePage props={{ navigate }} />} />
-          <Route path="/Product" element={<ProductPage props={{ navigate }} />} />
-          <Route path="/ProductListPage" element={<ProductListPage props={{ navigate }} />} />
-          <Route path="/Categories" element={<CategoriePage ops={{ navigate }} />} />
-          <Route path="/Cart" element={<CartPage props={{ navigate }} />} />
-          <Route path="*" element={<CategoriePage props={{ navigate }} />} />
-        </Routes>
-      </AnimatePresence>
+        <AnimatePresence>
+          <Routes>
+            <Route path="/" element={<CategoriePage props={{ navigate }} />} />
+            <Route path="/Product/:id" element={<ProductPage props={{ navigate }} />} />
+            <Route path="/ProductList" element={<ProductListPage props={{ navigate }} />} />
+            <Route path="/Categories" element={<CategoriePage ops={{ navigate }} />} />
+            <Route path="/Cart" element={<CartPage props={{ navigate }} />} />
+            <Route path="*" element={<CategoriePage props={{ navigate }} />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
+      <footer>
+        <div className="footer container">
+          <p>By continuing to this site, you agree to our terms and conditions. <a href="#">TelegramSales.com</a> (SIA Silver Spoon) is not responsible for any content published above. In case of dispute, please contact seller</p>
+          <ul>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Made with TelegramSales.com</a></li>
+          </ul>
+        </div>
 
+      </footer>
 
     </>
   );

@@ -1,8 +1,51 @@
 .page {
+
+    /* max-width: 500px; */
+    /* margin: 0 auto; */
+    background-color: gray;
+    min-height: 100%;
+}
+
+.pageHeader {
+    position: relative;
+}
+
+.editButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    color: #5CB253;
+    padding-right: 0;
+}
+
+
+.cartComment {
     margin-top: 10px;
-    background-color: rgb(172, 80, 172);
+}
+
+.cartComment textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 18px 0;
+    padding-bottom: 0;
+    border: none;
+    height: auto;
+    min-height: fit-content;
+    color: #9A9DA1;
+    font-family: var(--default-font);
+
+}
+
+.cartWrap,
+.cartCommentWrap {
+    background-color: white;
+}
+
+.cartList {
+    padding: 5px 0;
     display: flex;
-    min-height: 20vh;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    row-gap: 5px;
 }

@@ -1,12 +1,24 @@
+.container {
+    /* background-color: pink; */
+}
+
 .page {
     margin-top: 10px;
-    background-color: pink;
-    display: flex;
-    flex-direction: column;
-    min-height: 20vh;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* min-height: 20vh; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    /* max-width: 100%; */
+    width: 100%;
+    max-width: 500px;
+
+    margin: 0 auto;
+    /* display: inline-block; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 
@@ -20,4 +32,25 @@
 
 .swiper .swiperContainer:first-child {
     margin-top: 0px;
+}
+
+.ProductList {
+    width: 100%;
+    max-width: 100%;
+    /* max-width: 500px; */
+    /* display: flex; */
+    /* column-gap: 5px; */
+    /* grid-template-columns: repeat(1fr); */
+    /* flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+
+}
+
+.ProductList>div {
+    width: 100%;
+    padding: 5px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
 }

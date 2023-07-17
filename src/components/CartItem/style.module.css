@@ -1,0 +1,38 @@
+.cartItem {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    column-gap: 5px;
+}
+
+.productBtnInner {
+    margin-top: 5px;
+    position: relative;
+    width: 100px;
+    height: 30px;
+}
+
+.productBtnPlus {
+    position: absolute;
+    /* width: calc(50% - 2px); */
+    z-index: 2;
+    right: 0;
+    top: 0;
+    transition: all 0.2s ease;
+}
+
+.productBtnMinus,
+.productBtnPlus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productBtnMinus:active,
+.productBtnPlus:active {
+    background-color: #c2a46d;
+}
+
+.Checked {
+    /* width: calc(50% - 2px); */
+
+}

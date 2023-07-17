@@ -1,23 +1,11 @@
 .page {
-    margin-top: 10px;
-    background-color: rgb(87, 87, 203);
-    display: flex;
-    flex-direction: column;
-    min-height: 20vh;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    /* margin-top: 10px; */
+    /* background-color: rgb(87, 87, 203); */
 }
 
-
-.swiper img {
-    max-width: 100%;
-}
-
-.swiperContainer {
-    margin-top: 40px;
-}
-
-.swiper .swiperContainer:first-child {
-    margin-top: 0px;
+.categoryList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 20px;
 }

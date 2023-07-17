@@ -1,0 +1,82 @@
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.productBtnMinus img,
+.productBtnPlus img {
+    max-width: unset;
+}
+
+.productBtnInner {
+    position: relative;
+    /* width: 80px; */
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+}
+
+.productBtnMinus,
+.productBtnPlus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productBtnMinus:active,
+.productBtnPlus:active {
+    background-color: #c2a46d;
+}
+
+
+
+.productBtnMinus {
+    position: absolute;
+    width: 32px;
+    z-index: 1;
+    left: 0px;
+    background-color: #D5584C;
+}
+
+.productBtnPlus {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    transition: all 0.2s ease;
+}
+
+.Checked {
+    width: 32px;
+
+}
+
+.productPrice {
+    margin: 0 32px;
+    padding: 0 10px;
+}
+
+.productCost {
+    font-weight: 700;
+}
+
+.productDescription {
+    font-weight: normal
+}
+
+.productDescription h2,
+.productDescription h3,
+.productDescription h4,
+.productDescription h5 {
+    font-weight: 700;
+}
+
+.productDescription ul {
+    padding: 0;
+}
+
+.productDescription li {
+    list-style: '-';
+    list-style-position: inside;
+}

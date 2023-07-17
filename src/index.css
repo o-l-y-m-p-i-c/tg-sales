@@ -10,3 +10,55 @@ header ul {
   flex-wrap: wrap;
   column-gap: 5px;
 }
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+main {
+  flex: auto;
+  display: grid;
+}
+
+footer {
+  border-top: 1px solid #75787a6c;
+  color: #75787A;
+  flex: 0 1 0;
+  padding: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+footer a {
+  color: #75787A
+}
+
+footer ul {
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 10px;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+footer ul li {
+  list-style: none;
+}
+
+footer p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
