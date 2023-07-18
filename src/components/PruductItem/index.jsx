@@ -4,10 +4,14 @@ import { useState } from 'react';
 
 import minus from './../../assets/svg/Minus.svg';
 import plus from './../../assets/svg/Plus.svg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { changePage } from '../../actions';
 
 const ProductItem = ({ props }) => {
-    const navigation = useNavigate()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const location = useLocation()
 
     const [count, setCount] = useState(0)
 
@@ -26,9 +30,12 @@ const ProductItem = ({ props }) => {
     }
 
     const redirect = () => {
-        const url = '/Product/' + props.id
-        navigation(url)
+        dispatch(changePage(navigate, location, {
+            path: 'Product',
+            params: `${props.id}`
+        }))
     }
+
 
     return <>
         <div className={styles.productWrap} >

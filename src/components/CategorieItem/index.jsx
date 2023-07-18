@@ -1,21 +1,15 @@
 import styles from './style.module.scss'
-// import Carusel from '../Carusel/index';
-// import { useState } from 'react';
-
-// import minus from './../../assets/svg/Minus.svg';
-// import plus from './../../assets/svg/Plus.svg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { changePage } from '../../actions';
+import { useDispatch } from 'react-redux';
 
 const CategorieItem = ({ props }) => {
-    const navigation = useNavigate()
-
-    // const [count, setCount] = useState(0)
-
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const dispatch = useDispatch()
 
     const redirect = () => {
-        const url = '/ProductList'
-        navigation(url)
+        dispatch(changePage(navigate, location, { path: 'ProductList' }))
     }
 
     return <>

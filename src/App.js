@@ -1,24 +1,40 @@
 import { useEffect, useState } from "react";
 import './cafe.css'
-import { Routes, Route, useLocation, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { ProductPage } from './pages/ProductPage/index';
 import { CategoriePage } from "./pages/CategoriePage";
 import { CartPage } from "./pages/CartPage";
 import { ProductListPage } from "./pages/ProductListPage";
 import { useNavigate } from 'react-router-dom';
-import { BackButton, MainButton, useThemeParams } from '@vkruglikov/react-telegram-web-app';
+import { MainButton, useThemeParams } from '@vkruglikov/react-telegram-web-app';
 import { AnimatePresence } from 'framer-motion'
 
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import CartReducer from './reducers/cart';
+import ApplicationReducer from './reducers/app';
+import { Header } from "./components/Header";
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 
 
+const reducer = combineReducers({
+  CartReducer, ApplicationReducer
+})
+
+const store = createStore(
+  reducer, /* preloadedState, */
+  composeWithDevTools(applyMiddleware(thunk))
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 function App() {
   // eslint-disable-next-line
   const [colorScheme, themeParams] = useThemeParams();
 
   // let [counter, setCounter] = useState(Number(0))
-  const [navigationLength, setNavigationLength] = useState(0);
+  // const [navigationLength, setNavigationLength] = useState(0);
   // eslint-disable-next-line
   const [mainButtonSettings, setMainButtonSettings] = useState({
     text: "View order",
@@ -28,7 +44,7 @@ function App() {
   })
 
 
-  const location = useLocation();
+  // const location = useLocation();
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -52,26 +68,7 @@ function App() {
   //   window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
   // }
 
-  const handleGoForward = (e) => {
-    let currentPage = location.pathname.split('/')
-    currentPage = currentPage.length >= 1 ? currentPage[1] : 'Categories'
 
-    if (currentPage !== e.currentTarget.getAttribute('to')) {
-      navigate(e.currentTarget.getAttribute('to'));
-      setNavigationLength(prevLength => prevLength + 1);
-    }
-  };
-
-  const handleGoBack = () => {
-    if (
-      navigationLength > 0
-    ) {
-      navigate(-1);
-      setNavigationLength(prevLength => prevLength - 1);
-    } else {
-      navigate('/Categories');
-    }
-  };
 
 
   const switchMainButtonClick = () => {
@@ -88,18 +85,19 @@ function App() {
   }
 
   return (
-    <>
-      {navigationLength > 0 && <BackButton onClick={handleGoBack} />}
+    <Provider store={store}>
+      {/* {navigationLength > 0 && <BackButton onClick={handleGoBack} />} */}
       {mainButtonSettings.show && <MainButton text={mainButtonSettings.text} progress="" textColor={mainButtonSettings.textColor} color={mainButtonSettings.color} onClick={switchMainButtonClick} />}
 
-      <header>
+      <Header />
+      {/* <header>
         <ul>
           <li style={{ color: 'var(--text-color)' }} to="Categories" onClick={handleGoForward}>Categories</li>
           <li style={{ color: 'var(--text-color)' }} to="ProductList" onClick={handleGoForward}>ProductListPage</li>
           <li style={{ color: 'var(--text-color)' }} to="Cart" onClick={handleGoForward}>Cart</li>
         </ul>
-      </header>
-      {/* {navigationLength > 0 && <button onClick={handleGoBack}>back</button>} */}
+      </header> */}
+
       <main>
 
 
@@ -126,7 +124,7 @@ function App() {
 
       </footer>
 
-    </>
+    </Provider>
   );
 }
 
