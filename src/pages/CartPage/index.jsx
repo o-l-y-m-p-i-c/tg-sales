@@ -3,10 +3,11 @@ import styles from './style.module.css'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import CartItem from '../../components/CartItem'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 export const CartPage = () => {
 
     const [pageHeight, setPageHeight] = useState(0)
+    const dispatch = useDispatch()
     const [cartState, setCartState] = useState({
         result: []
     })
@@ -33,6 +34,10 @@ export const CartPage = () => {
             setCartState({ ...cartState, result: cart })
 
 
+        }
+
+        if (cart.length === 0) {
+            dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'HIDDEN' })
         }
         // eslint-disable-next-line
     }, [cart])
