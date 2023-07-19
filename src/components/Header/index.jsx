@@ -30,7 +30,7 @@ export const Header = () => {
                     <li style={{ color: 'var(--text-color)' }} to="Cart" onClick={handleGoForward}>Cart</li>
                 </ul>
             </header>
-            {navLength > 0 && <button onClick={handleGoBack}>back</button>}
+            {/* {navLength > 0 && <button onClick={handleGoBack}>back</button>} */}
             {navLength > 0 && <BackButton onClick={handleGoBack} />}
         </>
     )

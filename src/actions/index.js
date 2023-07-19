@@ -27,9 +27,8 @@ export const changePage = (navigate, location, cart, payload) => async (dispatch
 export const goBackPage = (navigate, location, cart) => async (dispatch) => {
     await dispatch({ type: 'NAV_DECR' })
     await navigate(-1)
-    if ((location.pathname === '/Cart' || location.pathname === '/Cart/') && cart.length > 0) {
-        dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'PAY_ORDER' })
-    } else if (cart.length > 0) {
+
+    if (cart.length > 0) {
         dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
     } else {
         // if (mainButtonType !== 'HIDDEN') {
