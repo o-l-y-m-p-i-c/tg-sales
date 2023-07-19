@@ -3,11 +3,16 @@ import styles from './style.module.css'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import CartItem from '../../components/CartItem'
+import { useSelector } from 'react-redux';
 export const CartPage = () => {
 
     const [pageHeight, setPageHeight] = useState(0)
-    const containerRef = useRef(null)
+    const [cartState, setCartState] = useState({
+        result: []
+    })
 
+    const containerRef = useRef(null)
+    const cart = useSelector(state => state.CartReducer.cart)
 
     const resize = () => {
         setPageHeight(prev => containerRef.current.scrollHeight + 100)
@@ -21,6 +26,16 @@ export const CartPage = () => {
         window.addEventListener("resize", resize);
         return () => window.removeEventListener("resize", resize);
     }, [pageHeight])
+
+
+    useEffect(() => {
+        if (cart) {
+            setCartState({ ...cartState, result: cart })
+
+
+        }
+        // eslint-disable-next-line
+    }, [cart])
 
     return (
         <motion.div
@@ -39,17 +54,12 @@ export const CartPage = () => {
                         <h2>
                             Your order
                         </h2>
-                        <button className={styles.editButton}>
+                        {cartState.length > 0 && <button className={styles.editButton}>
                             Edit
-                        </button>
+                        </button>}
                     </div>
                     <div className={`container ${styles.cartList}`}>
-                        <CartItem />
-                        <CartItem />
-                        <CartItem />
-                        <CartItem />
-                        <CartItem />
-
+                        {cartState.result.map(item => <CartItem props={{ item }} />)}
                     </div>
                 </div>
                 <div className={styles.cartCommentWrap}>

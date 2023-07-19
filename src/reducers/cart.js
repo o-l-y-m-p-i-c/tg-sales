@@ -1,14 +1,12 @@
 
 const IState = {
-
+    cart: []
 }
 // eslint-disable-next-line
 export default function api(state = IState, action) {
     switch (action.type) {
-        case 'INCREMENT':
-            return state + 1
-        case 'DECREMENT':
-            return state - 1
+        case 'EDIT_CART':
+            return { ...state, cart: action.payload }
         default:
             return state
     }

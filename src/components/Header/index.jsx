@@ -17,7 +17,7 @@ export const Header = () => {
     }
 
     const handleGoBack = () => {
-        dispatch(goBackPage(navigate))
+        dispatch(goBackPage(navigate, location))
     }
 
     return (

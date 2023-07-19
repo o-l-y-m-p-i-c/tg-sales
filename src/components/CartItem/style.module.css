@@ -32,6 +32,10 @@
     background-color: #c2a46d;
 }
 
+.cartItemImgWrap img {
+    object-fit: cover;
+}
+
 .Checked {
     /* width: calc(50% - 2px); */
 

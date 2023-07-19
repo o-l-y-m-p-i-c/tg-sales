@@ -5,18 +5,67 @@ import minus from './../../assets/svg/Minus.svg';
 import plus from './../../assets/svg/Plus.svg';
 import { motion } from 'framer-motion';
 import Carusel from '../../components/Carusel';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 export const ProductPage = () => {
-
+    const dispatch = useDispatch()
     const [count, setCount] = useState(0)
+    const [productData, setProductData] = useState(null)
+    const { id, category } = useParams()
+    const fetchedShop = useSelector(state => state.ApplicationReducer.fetchedShop)
+    const cart = useSelector(state => state.CartReducer.cart)
+
 
 
     const handleAdd = () => {
         setCount(prev => prev + 1)
+        let flag = false
+        const newCart = []
+        for (let i = 0; i < cart.length; i++) {
+            const element = cart[i];
+            if (element.parnetCategory === category && Number(element.productID) === Number(id)) {
+                flag = true
+                element.count = count + 1
+            }
+            newCart.push(element)
+        }
+        if (!flag) {
+            cart.push({ productData, parnetCategory: category, productID: Number(id), count: count + 1 })
+            dispatch({ type: 'EDIT_CART', payload: cart })
+        } else {
+            dispatch({ type: 'EDIT_CART', payload: newCart })
+        }
+
+
+
+
     }
 
     const handleDelete = () => {
+
+        let flag = false
+        const newCart = []
+        for (let i = 0; i < cart.length; i++) {
+            const element = cart[i];
+            // eslint-disable-next-line
+            if (element.parnetCategory === category && element.productID == id) {
+                flag = true
+                element.count = count - 1
+            }
+            if (element.count >= 1) {
+                newCart.push(element)
+            }
+
+        }
+        if (!flag) {
+            cart.push({ productData, parnetCategory: category, productID: id, count: count - 1 })
+            dispatch({ type: 'EDIT_CART', payload: cart })
+        } else {
+            dispatch({ type: 'EDIT_CART', payload: newCart })
+        }
+
         if (
             count < 1
         ) {
@@ -40,7 +89,60 @@ export const ProductPage = () => {
 
         window.addEventListener("resize", resize);
         return () => window.removeEventListener("resize", resize);
-    }, [pageHeight])
+    }, [pageHeight, productData])
+
+
+
+
+
+    useEffect(() => {
+        if (fetchedShop) {
+
+
+            const cat = crop(fetchedShop);
+            if (cat) {
+                setProductData(cat.Categories[id])
+            }
+
+            function crop(arr) {
+                for (let i = 0; i < arr.Categories.length; i++) {
+                    const element = arr.Categories[i];
+                    // console.log(element) 
+                    // eslint-disable-next-line 
+                    if (element.categorySlug == category) {
+                        return element;
+                        // return element
+                    }
+                    if (element.Categories.length > 0) {
+
+                        let a = crop(element)
+                        if (a !== undefined) {
+                            if (a)
+                                return a
+                        }
+
+
+                    }
+
+                }
+
+            }
+        }
+        // eslint-disable-next-line 
+    }, [])
+
+
+    useEffect(() => {
+        if (cart && cart.length > 0) {
+            for (let i = 0; i < cart.length; i++) {
+                const element = cart[i];
+                if (element.parnetCategory === category && Number(element.productID) === Number(id)) {
+                    setCount(element.count)
+                }
+            }
+        }
+        // eslint-disable-next-line 
+    }, [cart])
 
     return (
         <motion.div
@@ -53,7 +155,7 @@ export const ProductPage = () => {
                 <Carusel props={{ slidesPerView: 1, result: [{}, {}] }} />
 
                 <h2>
-                    Product
+                    {productData ? productData.title : ''}
                 </h2>
                 <p className={styles.productCost}>
                     $00.00
@@ -75,7 +177,9 @@ export const ProductPage = () => {
                     </h3>
 
                     <div className="">
-                        <h4>
+                        {productData ? productData.description : ''}
+                        {/* {productData.description} */}
+                        {/* <h4>
                             Features
                         </h4>
                         <ul>
@@ -93,7 +197,7 @@ export const ProductPage = () => {
                             <li>
                                 Durable <bold>Flexible</bold> case that grips around the edges of your phone <br />
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
 
