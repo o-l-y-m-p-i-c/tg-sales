@@ -70,7 +70,7 @@ const ProductItem = ({ props }) => {
     }
 
     const redirect = () => {
-        dispatch(changePage(navigate, location, {
+        dispatch(changePage(navigate, location, cart, {
             path: 'Product',
             params: `${props.catName}/${props.id}`
         }))

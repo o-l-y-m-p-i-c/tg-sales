@@ -10,14 +10,15 @@ export const Header = () => {
     const location = useLocation();
     const navLength = useSelector(state => state.ApplicationReducer.navLength)
     const dispatch = useDispatch()
+    const cart = useSelector(state => state.CartReducer.cart)
 
     const handleGoForward = (e) => {
         const path = e.currentTarget.getAttribute('to').toString()
-        dispatch(changePage(navigate, location, { path }))
+        dispatch(changePage(navigate, location, cart, { path }))
     }
 
     const handleGoBack = () => {
-        dispatch(goBackPage(navigate, location))
+        dispatch(goBackPage(navigate, location, cart))
     }
 
     return (
@@ -29,7 +30,7 @@ export const Header = () => {
                     <li style={{ color: 'var(--text-color)' }} to="Cart" onClick={handleGoForward}>Cart</li>
                 </ul>
             </header>
-            {/* {navLength > 0 && <button onClick={handleGoBack}>back</button>} */}
+            {navLength > 0 && <button onClick={handleGoBack}>back</button>}
             {navLength > 0 && <BackButton onClick={handleGoBack} />}
         </>
     )

@@ -7,11 +7,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 export const MainButtonContainer = () => {
     const mainButtonType = useSelector(state => state.ApplicationReducer.mainButtonType)
-    const navLength = useSelector(state => state.ApplicationReducer.navLength)
+    // const navLength = useSelector(state => state.ApplicationReducer.navLength)
     const cart = useSelector(state => state.CartReducer.cart)
     const dispatch = useDispatch()
     const location = useLocation()
     const navigate = useNavigate()
+
 
     // eslint-disable-next-line
     const [mainButtonSettings, setMainButtonSettings] = useState({
@@ -33,7 +34,7 @@ export const MainButtonContainer = () => {
                         color: '#63C470',
                         textColor: '#FFFFFF',
                         callBack: () => {
-                            dispatch(changePage(navigate, location, { path: 'Cart' }))
+                            dispatch(changePage(navigate, location, cart, { path: 'Cart' }))
                             dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'PAY_ORDER' })
                         }
                     }
@@ -77,32 +78,30 @@ export const MainButtonContainer = () => {
     }, [mainButtonType])
 
 
-    useEffect(() => {
-        console.log("MainBTN", cart)
-        setTimeout(() => {
-            if ((location.pathname === '/Cart' || location.pathname === '/Cart/') && cart.length > 0) {
-                dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'PAY_ORDER' })
-            } else if (cart.length > 0) {
-                dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
-            } else {
-                // if (mainButtonType !== 'HIDDEN') {
-                dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'HIDDEN' })
-                // window.Telegram.WebApp
-                // }
+    // useEffect(() => {
+    //     if ((location.pathname === '/Cart' || location.pathname === '/Cart/') && cart.length > 0) {
+    //         dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'PAY_ORDER' })
+    //     } else if (cart.length > 0) {
+    //         dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
+    //     } else {
+    //         // if (mainButtonType !== 'HIDDEN') {
+    //         dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'HIDDEN' })
+    //         // window.Telegram.WebApp
+    //         // }
 
-            }
-        }, 200)
+    //     }
 
 
-        console.log(mainButtonSettings)
 
-        // eslint-disable-next-line
-    }, [navLength, cart])
+    //     console.log(mainButtonSettings)
+
+    //     // eslint-disable-next-line
+    // }, [navLength, cart])
 
 
     return (
         <>
-            {/* {mainButtonSettings.show && <button onClick={mainButtonSettings.callBack} style={{ color: mainButtonSettings.textColor, background: mainButtonSettings.color }}>{mainButtonSettings.text}</button>} */}
+            {mainButtonSettings.show && <button onClick={mainButtonSettings.callBack} style={{ color: mainButtonSettings.textColor, background: mainButtonSettings.color }}>{mainButtonSettings.text}</button>}
             {mainButtonSettings.show && <MainButton text={mainButtonSettings.text} onClick={mainButtonSettings.callBack} textColor={mainButtonSettings.textColor} color={mainButtonSettings.color} />}
 
         </>

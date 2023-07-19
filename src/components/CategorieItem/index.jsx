@@ -1,19 +1,20 @@
 import styles from './style.module.scss'
 import { useNavigate, useLocation } from 'react-router-dom';
 import { changePage } from '../../actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CategorieItem = ({ props }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch()
+    const cart = useSelector(state => state.CartReducer.cart)
 
     const redirect2 = () => {
         console.log(props.item.haveChilds)
         if (props.item.haveChilds === false) {
-            dispatch(changePage(navigate, location, { path: 'ProductList', params: props.item.categorySlug }))
+            dispatch(changePage(navigate, location, cart, { path: 'ProductList', params: props.item.categorySlug }))
         } else {
-            dispatch(changePage(navigate, location, { path: 'Categories', params: props.item.categorySlug }))
+            dispatch(changePage(navigate, location, cart, { path: 'Categories', params: props.item.categorySlug }))
         }
 
     }
