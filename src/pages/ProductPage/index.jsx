@@ -37,7 +37,7 @@ export const ProductPage = () => {
         } else {
             dispatch({ type: 'EDIT_CART', payload: newCart })
         }
-
+        dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
 
 
 

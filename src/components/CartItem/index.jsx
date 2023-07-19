@@ -32,6 +32,8 @@ const CartItem = ({ props }) => {
             dispatch({ type: 'EDIT_CART', payload: newCart })
         }
 
+        // dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
+
     }
 
     const handleDelete = () => {

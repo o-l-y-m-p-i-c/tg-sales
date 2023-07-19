@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 export const MainButtonContainer = () => {
     const mainButtonType = useSelector(state => state.ApplicationReducer.mainButtonType)
+    const navLength = useSelector(state => state.ApplicationReducer.navLength)
     const cart = useSelector(state => state.CartReducer.cart)
     const dispatch = useDispatch()
     const location = useLocation()
@@ -77,18 +78,26 @@ export const MainButtonContainer = () => {
 
 
     useEffect(() => {
-        if ((location.pathname === '/Cart' || location.pathname === '/Cart/') && mainButtonType !== 'PAY_ORDER' && cart.length > 0) {
-            dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'PAY_ORDER' })
-        } else if (mainButtonType === 'VIEW_ORDER' || cart.length > 0) {
-            dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
-        } else {
-            // if (mainButtonType !== 'HIDDEN') {
-            dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'HIDDEN' })
-            // }
+        console.log("MainBTN", cart)
+        setTimeout(() => {
+            if ((location.pathname === '/Cart' || location.pathname === '/Cart/') && cart.length > 0) {
+                dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'PAY_ORDER' })
+            } else if (cart.length > 0) {
+                dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
+            } else {
+                // if (mainButtonType !== 'HIDDEN') {
+                dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'HIDDEN' })
+                // window.Telegram.WebApp
+                // }
 
-        }
+            }
+        }, 200)
+
+
+        console.log(mainButtonSettings)
+
         // eslint-disable-next-line
-    }, [location.pathname, cart])
+    }, [navLength, cart])
 
 
     return (
