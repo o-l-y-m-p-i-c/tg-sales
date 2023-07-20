@@ -18,7 +18,7 @@ const Carusel = ({ props }) => {
             // onSlideChange={() => console.log('slide change')}
             // onSwiper={(swiper) => console.log(swiper)}
             >
-                {props.result.map(item => <SwiperSlide><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>)}
+                {props.result.map((item, index) => <SwiperSlide key={index}><picture><source srcSet='/assets/img/1.png' /><img src="/assets/img/1.png" alt="" /></picture></SwiperSlide>)}
             </Swiper>
         </div>
 

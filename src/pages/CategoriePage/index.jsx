@@ -45,12 +45,12 @@ export const CategoriePage = () => {
 
     function searchCategories(data) {
         if (data && data.haveChilds && id === undefined) {
-            return data.Categories.map(item => <CategorieItem props={{ item }} />)
+            return data.Categories.map((item, index) => <CategorieItem key={index} props={{ item }} />)
         } else if (data.haveChilds && id) {
             const cat = crop(data);
             console.log(cat)
             if (cat) {
-                return cat.Categories.map(item => <CategorieItem props={{ item }} />)
+                return cat.Categories.map((item, index) => <CategorieItem key={index} props={{ item }} />)
             }
 
             function crop(arr) {
@@ -91,7 +91,7 @@ export const CategoriePage = () => {
         >
             <div className={`container ${styles.page}`} ref={containerRef} >
                 <h1>
-                    {id ? id : 'Categorie'}
+                    {id ? `Category - ${id}` : 'Categories'}
                 </h1>
                 <div className={styles.categoryList}>
                     {categories}

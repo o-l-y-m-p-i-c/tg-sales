@@ -40,3 +40,7 @@
     /* width: calc(50% - 2px); */
 
 }
+
+.count {
+    color: var(--main-color)
+}

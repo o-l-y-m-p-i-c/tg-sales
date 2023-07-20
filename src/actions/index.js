@@ -5,7 +5,7 @@ export const changePage = (navigate, location, cart, payload) => async (dispatch
     currentPage = currentPage.length >= 1 ? currentPage[1] : 'Categories'
 
     if (payload.path) {
-        console.log(payload.params)
+        // console.log(payload.params)
         navigate(`/${payload.path}/${payload.params ? payload.params : ''}`);
         dispatch({ type: 'NAV_INCR' })
         if ((location.pathname === '/Cart' || location.pathname === '/Cart/') && cart.length > 0) {

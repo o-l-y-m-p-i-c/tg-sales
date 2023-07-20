@@ -72,15 +72,15 @@ const CartItem = ({ props }) => {
     }, [cart])
 
     useEffect(() => {
-        console.log(props)
         if (cart && cart.length > 0) {
             for (let i = 0; i < cart.length; i++) {
                 const element = cart[i];
-                console.log(element.parnetCategory === props.item.parnetCategory)
-                console.log(Number(element.productID) === props.item.productID)
+                // console.log(element.parnetCategory === props.item.parnetCategory)
+                // console.log(Number(element.productID) === props.item.productID)
                 if (element.parnetCategory === props.item.parnetCategory && (Number(element.productID) === props.item.productID)) {
                     // console.log(element)
                     setCount(element.count)
+                    return
                 }
             }
         }
@@ -93,15 +93,17 @@ const CartItem = ({ props }) => {
                 <img width={70} height={70} className={styles.cartItemImg} src="/assets/img/1.png" alt="" />
             </div>
             <div className="">
-                {props.item.productData.title} - ({props.item.parnetCategory}) {count}
-                <div className={styles.productBtnInner}>
-                    <button className={styles.productBtnMinus} onClick={handleDelete}>
-                        <img width={14} src={minus} alt="" />
-                    </button>
-                    <button className={`${styles.productBtnPlus} ${count > 0 ? styles.Checked : ''}`} onClick={handleAdd}>
-                        {count === 0 ? "Add" : <img width={14} src={plus} alt="" />}
-                    </button>
-                </div>
+                {props.item.productData.title} {props.item.parnetCategory && `- (${props.item.parnetCategory})`} <span className={styles.count}>x{count}</span>
+
+                {props.editCart &&
+                    <div className={styles.productBtnInner}>
+                        <button className={styles.productBtnMinus} onClick={handleDelete}>
+                            <img width={14} src={minus} alt="" />
+                        </button>
+                        <button className={`${styles.productBtnPlus} ${count > 0 ? styles.Checked : ''}`} onClick={handleAdd}>
+                            {count === 0 ? "Add" : <img width={14} src={plus} alt="" />}
+                        </button>
+                    </div>}
             </div>
             <div className="">
                 Cost

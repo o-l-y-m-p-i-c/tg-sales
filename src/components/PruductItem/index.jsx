@@ -27,6 +27,10 @@ const ProductItem = ({ props }) => {
                 flag = true
                 element.count = count + 1
             }
+            if (!props.catName && Number(element.productID) === Number(props.id)) {
+                flag = true
+                element.count = count + 1
+            }
             newCart.push(element)
         }
         if (!flag) {
@@ -46,6 +50,10 @@ const ProductItem = ({ props }) => {
         for (let i = 0; i < cart.length; i++) {
             const element = cart[i];
             if (element.parnetCategory === props.catName && (Number(element.productID) === Number(props.id))) {
+                flag = true
+                element.count = count - 1
+            }
+            if (!props.catName && (Number(element.productID) === Number(props.id))) {
                 flag = true
                 element.count = count - 1
             }
@@ -72,21 +80,25 @@ const ProductItem = ({ props }) => {
     const redirect = () => {
         dispatch(changePage(navigate, location, cart, {
             path: 'Product',
-            params: `${props.catName}/${props.id}`
+            params: `${props.id}/${props.catName ? props.catName : ''}`
         }))
     }
 
 
 
     useEffect(() => {
-        console.log(props)
+        // console.log(props)
         if (cart && cart.length > 0) {
             for (let i = 0; i < cart.length; i++) {
                 const element = cart[i];
-                console.log(element.parnetCategory === props.catName)
-                console.log(Number(element.productID) === props.id)
+                // console.log(element.parnetCategory === props.catName)
+                // console.log(Number(element.productID) === props.id)
                 if (element.parnetCategory === props.catName && (Number(element.productID) === props.id)) {
-                    console.log(element)
+                    // console.log(element)
+                    setCount(element.count)
+                }
+                if (!element.parnetCategory && (Number(element.productID) === props.id)) {
+                    // console.log(element)
                     setCount(element.count)
                 }
             }
@@ -108,9 +120,10 @@ const ProductItem = ({ props }) => {
             <h3 className={styles.productTitle} onClick={redirect}>
                 {props.item.title}
             </h3>
-            <div style={{ textAlign: 'center', margin: '5px 0' }}>
+            {props.catName && <div style={{ textAlign: 'center', margin: '5px 0' }}>
                 {props.catName}
-            </div>
+            </div>}
+
             <div className={styles.productPriceWrap}>
                 <span className={styles.productPrice}>$999</span>
                 <span className={styles.productSalePrice}>$1200</span>

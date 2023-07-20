@@ -39,7 +39,7 @@ export const ProductListPage = () => {
 
     useEffect(() => {
 
-        if (fetchedShop) {
+        if (fetchedShop && id) {
 
 
             const cat = crop(fetchedShop);
@@ -72,9 +72,17 @@ export const ProductListPage = () => {
                 }
 
             }
+
+            return
+        }
+
+
+        if (fetchedShop) {
+            setResultArr({ ...resultArr, result: fetchedShop.Categories, category: null })
+            return
         }
         // eslint-disable-next-line 
-    }, [])
+    }, [fetchedShop])
 
 
     // useEffect(() => {
@@ -102,10 +110,10 @@ export const ProductListPage = () => {
             <div className={styles.container} ref={containerRef}>
                 <div className={`${styles.page}`}>
                     <h1>
-                        ProductList
+                        Product List
                     </h1>
                     <div className={styles.ProductList}>
-                        {resultArr.result.map((item, index) => <ProductItem props={{ item, id: index, catName: resultArr.category }} />)}
+                        {resultArr.result.length > 0 ? resultArr.result.map((item, index) => <ProductItem key={index} props={{ item, id: index, catName: resultArr.category }} />) : 'No results found'}
                     </div>
 
 

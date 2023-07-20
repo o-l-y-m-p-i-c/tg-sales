@@ -12,7 +12,6 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { Footer } from "./components/Footer";
 import { MainButtonContainer } from "./components/MainButtonContainer";
 import { Routing } from "./router";
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -28,7 +27,6 @@ const store = createStore(
 );
 
 function App() {
-  const navigate = useNavigate()
   // eslint-disable-next-line
   const [colorScheme, themeParams] = useThemeParams();
 
@@ -43,7 +41,7 @@ function App() {
   useEffect(() => { init() }, [])
 
   function init() {
-    navigate('/Categories')
+    // navigate('/Categories')
     window.Telegram.WebApp.ready();
   }
 
@@ -57,7 +55,7 @@ function App() {
       {/* {navigationLength > 0 && <BackButton onClick={handleGoBack} />} */}
       {/* {mainButtonSettings.show && <MainButton text={mainButtonSettings.text} progress="" textColor={mainButtonSettings.textColor} color={mainButtonSettings.color} onClick={switchMainButtonClick} />} */}
       <Header />
-
+      <MainButtonContainer />
       <main>
         <AnimatePresence>
           <Routing />
@@ -73,7 +71,7 @@ function App() {
 
           </Routes> */}
         </AnimatePresence>
-        <MainButtonContainer />
+
       </main>
 
       <Footer />

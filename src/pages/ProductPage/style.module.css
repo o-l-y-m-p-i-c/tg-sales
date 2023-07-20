@@ -3,6 +3,10 @@
     margin: 0 auto;
 }
 
+.productContent {
+    padding: 0 10px;
+}
+
 .productBtnMinus img,
 .productBtnPlus img {
     max-width: unset;

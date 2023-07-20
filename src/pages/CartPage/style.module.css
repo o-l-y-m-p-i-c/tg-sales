@@ -2,7 +2,7 @@
 
     /* max-width: 500px; */
     /* margin: 0 auto; */
-    background-color: gray;
+    background-color: var(--page-hint-color);
     min-height: 100%;
 }
 
@@ -35,13 +35,18 @@
     min-height: fit-content;
     color: #9A9DA1;
     font-family: var(--default-font);
+    resize: none;
+    outline: none;
 
 }
 
 .cartWrap,
 .cartCommentWrap {
     background-color: white;
+    padding: 0 10px;
 }
+
+
 
 .cartList {
     padding: 5px 0;

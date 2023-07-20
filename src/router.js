@@ -1,11 +1,12 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import { CartPage } from "./pages/CartPage";
 import { CategoriePage } from "./pages/CategoriePage"
 import { ProductListPage } from "./pages/ProductListPage";
 import { ProductPage } from './pages/ProductPage/index';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
+// eslint-disable-next-line
 const fetchResult = {
     Categories: [
         {
@@ -13,15 +14,15 @@ const fetchResult = {
                 {
                     Categories: [
                         {
-                            id: 0,
+                            // id: 0,
                             title: '',
                             Categories: [
                                 {
-                                    id: 0,
+                                    // id: 0,
                                     title: '',
                                     Categories: [
                                         {
-                                            id: 0,
+                                            // id: 0,
                                             title: 'ProductName1',
                                             Categories: [
 
@@ -39,7 +40,7 @@ const fetchResult = {
                                     description: 'Product Description',
                                     haveChilds: false
                                 }, {
-                                    id: 1,
+                                    // id: 1,
                                     title: 'ProductName2',
                                     Categories: [],
                                     categorySlug: 'Cat1-1-1-2',
@@ -55,9 +56,9 @@ const fetchResult = {
                             description: 'Product Description',
                             haveChilds: true
                         }, {
-                            id: 1,
+                            // id: 1,
                             Categories: [{
-                                id: 0,
+                                // id: 0,
                                 title: 'ProductName1',
                                 Categories: [
 
@@ -68,7 +69,7 @@ const fetchResult = {
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
-                                id: 1,
+                                // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
@@ -83,9 +84,9 @@ const fetchResult = {
                             description: 'Product Description',
                             haveChilds: false
                         }, {
-                            id: 3,
+                            // id: 3,
                             Categories: [{
-                                id: 0,
+                                // id: 0,
                                 title: 'ProductName1',
                                 Categories: [
 
@@ -96,7 +97,7 @@ const fetchResult = {
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
-                                id: 1,
+                                // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
@@ -118,11 +119,11 @@ const fetchResult = {
                 {
                     Categories: [
                         {
-                            id: 0,
+                            // id: 0,
                             title: 'ProductName1',
                             Categories: [
                                 {
-                                    id: 0,
+                                    // id: 0,
                                     title: 'ProductName1',
                                     Categories: [
 
@@ -133,7 +134,7 @@ const fetchResult = {
                                     description: 'Product Description',
                                     haveChilds: false
                                 }, {
-                                    id: 1,
+                                    // id: 1,
                                     title: 'ProductName2',
                                     Categories: [],
                                     categorySlug: false,
@@ -149,10 +150,10 @@ const fetchResult = {
                             description: 'Product Description',
                             haveChilds: false
                         }, {
-                            id: 1,
+                            // id: 1,
                             title: 'ProductName2',
                             Categories: [{
-                                id: 0,
+                                // id: 0,
                                 title: 'ProductName1',
                                 Categories: [
 
@@ -163,7 +164,7 @@ const fetchResult = {
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
-                                id: 1,
+                                // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
@@ -178,10 +179,10 @@ const fetchResult = {
                             description: 'Product Description',
                             haveChilds: false
                         }, {
-                            id: 3,
+                            // id: 3,
                             title: 'ProductName3',
                             Categories: [{
-                                id: 0,
+                                // id: 0,
                                 title: 'ProductName1',
                                 Categories: [
 
@@ -192,7 +193,7 @@ const fetchResult = {
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
-                                id: 1,
+                                // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
@@ -220,11 +221,11 @@ const fetchResult = {
                 {
                     Categories: [
                         {
-                            id: 0,
+                            // id: 0,
                             title: 'ProductName1',
                             Categories: [
                                 {
-                                    id: 0,
+                                    // id: 0,
                                     title: 'ProductName1',
                                     Categories: [
 
@@ -235,7 +236,7 @@ const fetchResult = {
                                     description: 'Product Description',
                                     haveChilds: false
                                 }, {
-                                    id: 1,
+                                    // id: 1,
                                     title: 'ProductName2',
                                     Categories: [],
                                     categorySlug: false,
@@ -251,10 +252,10 @@ const fetchResult = {
                             description: 'Product Description',
                             haveChilds: false
                         }, {
-                            id: 1,
+                            // id: 1,
                             title: 'ProductName2',
                             Categories: [{
-                                id: 0,
+                                // id: 0,
                                 title: 'ProductName1',
                                 Categories: [
 
@@ -265,7 +266,7 @@ const fetchResult = {
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
-                                id: 1,
+                                // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
@@ -280,10 +281,10 @@ const fetchResult = {
                             description: 'Product Description',
                             haveChilds: false
                         }, {
-                            id: 3,
+                            // id: 3,
                             title: 'ProductName3',
                             Categories: [{
-                                id: 0,
+                                // id: 0,
                                 title: 'ProductName1',
                                 Categories: [
 
@@ -294,7 +295,7 @@ const fetchResult = {
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
-                                id: 1,
+                                // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
@@ -316,11 +317,11 @@ const fetchResult = {
                 {
                     Categories: [
                         {
-                            id: 0,
+                            // id: 0,
                             title: 'ProductName1',
                             Categories: [
                                 {
-                                    id: 0,
+                                    // id: 0,
                                     title: 'ProductName1',
                                     Categories: [
 
@@ -331,7 +332,7 @@ const fetchResult = {
                                     description: 'Product Description',
                                     haveChilds: false
                                 }, {
-                                    id: 1,
+                                    // id: 1,
                                     title: 'ProductName2',
                                     Categories: [],
                                     categorySlug: false,
@@ -347,10 +348,10 @@ const fetchResult = {
                             description: 'Product Description',
                             haveChilds: false
                         }, {
-                            id: 1,
+                            // id: 1,
                             title: 'ProductName2',
                             Categories: [{
-                                id: 0,
+                                // id: 0,
                                 title: 'ProductName1',
                                 Categories: [
 
@@ -361,7 +362,7 @@ const fetchResult = {
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
-                                id: 1,
+                                // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
@@ -376,10 +377,10 @@ const fetchResult = {
                             description: 'Product Description',
                             haveChilds: false
                         }, {
-                            id: 3,
+                            // id: 3,
                             title: 'ProductName3',
                             Categories: [{
-                                id: 0,
+                                // id: 0,
                                 title: 'ProductName1',
                                 Categories: [
 
@@ -390,7 +391,7 @@ const fetchResult = {
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
-                                id: 1,
+                                // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
@@ -416,7 +417,7 @@ const fetchResult = {
         {
             Categories: [
                 {
-                    id: 6,
+                    // id: 6,
                     title: 'ProductName1',
                     Categories: [],
                     categorySlug: false,
@@ -425,7 +426,7 @@ const fetchResult = {
                     description: 'Product Description',
                     haveChilds: false
                 }, {
-                    id: 7,
+                    // id: 7,
                     title: 'ProductName2',
                     Categories: [],
                     categorySlug: false,
@@ -444,34 +445,81 @@ const fetchResult = {
     categorySlug: 'Parent'
 }
 
+// eslint-disable-next-line
+const fetchResult2 = {
+    Categories: [
+        {
+            // id: 6,
+            title: 'ProductName1',
+            Categories: [],
+            categorySlug: false,
+            price: 1,
+            salePrice: 0,
+            description: 'Product Description',
+            haveChilds: false
+        }, {
+            // id: 7,
+            title: 'ProductName2',
+            Categories: [],
+            categorySlug: false,
+            price: 2,
+            salePrice: 0,
+            description: 'Product Description',
+            haveChilds: false
+        }
+    ],
+    haveChilds: false,
+    categorySlug: ''
+}
+
 export const Routing = () => {
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
-
+    const data = useSelector(state => state.ApplicationReducer.fetchedShop)
 
 
     const init = () => {
+
+        if (data && data.haveChilds) {
+            navigate('/Categories')
+        } else if (data) {
+            navigate('/ProductList')
+        }
         dispatch({ type: 'INIT_SHOP', payload: fetchResult })
     }
 
 
     useEffect(() => {
+        window.Telegram.WebApp.ready();
         init()
         // eslint-disable-next-line
-    }, [])
+    }, [data])
 
 
 
     return (
         <>
             <Routes>
-                <Route path="*" element={<CategoriePage />} />
-                <Route path="/" element={<CategoriePage />} />
-                <Route path="/Product/:category/:id" element={<ProductPage />} />
+
+                {(data && data.haveChilds) ? (
+                    <>
+                        <Route path="*" element={<CategoriePage />} />
+                        <Route path="/" element={<CategoriePage />} />
+                        <Route path="/Categories" element={<CategoriePage />} />
+                        <Route path="/Categories/:id" element={<CategoriePage />} />
+                        <Route path="/Product/:id/:category" element={<ProductPage />} />
+                        <Route path="/ProductList/:id" element={<ProductListPage />} />
+                    </>
+                ) : (
+                    <>
+                        <Route path="*" element={<ProductListPage />} />
+                        <Route path="/" element={<ProductListPage />} />
+                        <Route path="/Product/:id" element={<ProductPage />} />
+                    </>
+                )}
+
                 <Route path="/ProductList" element={<ProductListPage />} />
-                <Route path="/ProductList/:id" element={<ProductListPage />} />
-                <Route path="/Categories" element={<CategoriePage />} />
-                <Route path="/Categories/:id" element={<CategoriePage />} />
                 <Route path="/Cart" element={<CartPage />} />
 
             </Routes>

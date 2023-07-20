@@ -29,6 +29,10 @@ export const ProductPage = () => {
                 flag = true
                 element.count = count + 1
             }
+            if (!category && Number(element.productID) === Number(id)) {
+                flag = true
+                element.count = count + 1
+            }
             newCart.push(element)
         }
         if (!flag) {
@@ -51,6 +55,10 @@ export const ProductPage = () => {
             const element = cart[i];
             // eslint-disable-next-line
             if (element.parnetCategory === category && element.productID == id) {
+                flag = true
+                element.count = count - 1
+            }
+            if (!category && (Number(element.productID) === Number(id))) {
                 flag = true
                 element.count = count - 1
             }
@@ -96,7 +104,7 @@ export const ProductPage = () => {
 
 
     useEffect(() => {
-        if (fetchedShop) {
+        if (fetchedShop && category) {
 
 
             const cat = crop(fetchedShop);
@@ -127,6 +135,11 @@ export const ProductPage = () => {
                 }
 
             }
+            return
+        }
+        if (fetchedShop.Categories[id]) {
+            setProductData(fetchedShop.Categories[id])
+            return
         }
         // eslint-disable-next-line 
     }, [])
@@ -137,6 +150,9 @@ export const ProductPage = () => {
             for (let i = 0; i < cart.length; i++) {
                 const element = cart[i];
                 if (element.parnetCategory === category && Number(element.productID) === Number(id)) {
+                    setCount(element.count)
+                }
+                if (!category && (Number(element.productID) === Number(id))) {
                     setCount(element.count)
                 }
             }
@@ -153,33 +169,35 @@ export const ProductPage = () => {
         >
             <div className={styles.container} ref={containerRef}>
                 <Carusel props={{ slidesPerView: 1, result: [{}, {}] }} />
+                <div className={styles.productContent} >
 
-                <h2>
-                    {productData ? productData.title : ''}
-                </h2>
-                <p className={styles.productCost}>
-                    $00.00
-                </p>
-                <div className={styles.productBtnInner}>
-                    <button className={styles.productBtnMinus} onClick={handleDelete}>
-                        <img width={14} src={minus} alt="" />
-                    </button>
-                    <span className={styles.productPrice}>
-                        {count}
-                    </span>
-                    <button className={`${styles.productBtnPlus} ${count > 0 ? styles.Checked : ''}`} onClick={handleAdd}>
-                        {count === 0 ? "Add" : <img width={14} src={plus} alt="" />}
-                    </button>
-                </div>
-                <div className={styles.productDescription}>
-                    <h3>
-                        About the Product
-                    </h3>
 
-                    <div className="">
-                        {productData ? productData.description : ''}
-                        {/* {productData.description} */}
-                        {/* <h4>
+                    <h2>
+                        {productData ? productData.title : ''}
+                    </h2>
+                    <p className={styles.productCost}>
+                        $00.00
+                    </p>
+                    <div className={styles.productBtnInner}>
+                        <button className={styles.productBtnMinus} onClick={handleDelete}>
+                            <img width={14} src={minus} alt="" />
+                        </button>
+                        <span className={styles.productPrice}>
+                            {count}
+                        </span>
+                        <button className={`${styles.productBtnPlus} ${count > 0 ? styles.Checked : ''}`} onClick={handleAdd}>
+                            {count === 0 ? "Add" : <img width={14} src={plus} alt="" />}
+                        </button>
+                    </div>
+                    <div className={styles.productDescription}>
+                        <h3>
+                            About the Product
+                        </h3>
+
+                        <div className="">
+                            {productData ? productData.description : ''}
+                            {/* {productData.description} */}
+                            {/* <h4>
                             Features
                         </h4>
                         <ul>
@@ -198,9 +216,9 @@ export const ProductPage = () => {
                                 Durable <bold>Flexible</bold> case that grips around the edges of your phone <br />
                             </li>
                         </ul> */}
+                        </div>
                     </div>
                 </div>
-
             </div>
 
 

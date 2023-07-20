@@ -11,6 +11,7 @@ export const CartPage = () => {
     const [cartState, setCartState] = useState({
         result: []
     })
+    const [editCart, setEditCart] = useState(false)
 
     const containerRef = useRef(null)
     const cart = useSelector(state => state.CartReducer.cart)
@@ -59,17 +60,17 @@ export const CartPage = () => {
                         <h2>
                             Your order
                         </h2>
-                        {cartState.length > 0 && <button className={styles.editButton}>
+                        {cartState.result.length > 0 && <button onClick={() => setEditCart(!editCart)} className={styles.editButton}>
                             Edit
                         </button>}
                     </div>
                     <div className={`container ${styles.cartList}`}>
-                        {cartState.result.map(item => <CartItem props={{ item }} />)}
+                        {cartState.result.map((item, index) => <CartItem key={index} props={{ item, editCart }} />)}
                     </div>
                 </div>
                 <div className={styles.cartCommentWrap}>
                     <div className={`container ${styles.cartComment}`}>
-                        <textarea name="" id="" placeholder='Add comment...' ></textarea>
+                        <textarea name="" id="" rows={2} placeholder='Add comment...' ></textarea>
                     </div>
                 </div>
                 <div className={`container`}>
