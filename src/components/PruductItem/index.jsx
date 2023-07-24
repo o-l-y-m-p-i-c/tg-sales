@@ -7,6 +7,7 @@ import plus from './../../assets/svg/Plus.svg';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePage } from '../../actions';
+import { setPayPrice } from '../../reducers/cart';
 
 const ProductItem = ({ props }) => {
     const navigate = useNavigate()
@@ -19,6 +20,7 @@ const ProductItem = ({ props }) => {
 
     const handleAdd = () => {
         setCount(prev => prev + 1)
+
         let flag = false
         const newCart = []
         for (let i = 0; i < cart.length; i++) {
@@ -39,8 +41,9 @@ const ProductItem = ({ props }) => {
         } else {
             dispatch({ type: 'EDIT_CART', payload: newCart })
         }
-
+        dispatch(setPayPrice(cart))
         dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
+
     }
 
     const handleDelete = () => {
@@ -74,7 +77,9 @@ const ProductItem = ({ props }) => {
         ) {
             return
         }
+        dispatch(setPayPrice(cart))
         setCount(prev => prev - 1)
+        // dispatch(setPayPrice(cart))
     }
 
     const redirect = () => {
@@ -87,7 +92,7 @@ const ProductItem = ({ props }) => {
 
 
     useEffect(() => {
-        // console.log(props)
+        console.log(props)
         if (cart && cart.length > 0) {
             for (let i = 0; i < cart.length; i++) {
                 const element = cart[i];
@@ -115,7 +120,7 @@ const ProductItem = ({ props }) => {
                 slidesPerView: 1,
             }} /> */}
             <div className={styles.productImgWrap} onClick={redirect}>
-                <img className={styles.productImg} src="/assets/img/1.png" alt="" />
+                <img className={styles.productImg} src={props.item.img && props.item.img.length > 0 ? props.item.img[0] : '/assets/img/default.png'} alt="" />
             </div>
             <h3 className={styles.productTitle} onClick={redirect}>
                 {props.item.title}
@@ -125,8 +130,8 @@ const ProductItem = ({ props }) => {
             </div>}
 
             <div className={styles.productPriceWrap}>
-                <span className={styles.productPrice}>$999</span>
-                <span className={styles.productSalePrice}>$1200</span>
+                <span className={styles.productPrice}>{props.item.price ? `$${props.item.price}` : ''}</span>
+                {/* <span className={styles.productSalePrice}>$1200</span> */}
             </div>
             <div className={styles.productBtnWrap}>
                 <div className={styles.productBtnInner}>

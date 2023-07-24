@@ -9,6 +9,7 @@ export const MainButtonContainer = () => {
     const mainButtonType = useSelector(state => state.ApplicationReducer.mainButtonType)
     // const navLength = useSelector(state => state.ApplicationReducer.navLength)
     const cart = useSelector(state => state.CartReducer.cart)
+    const payPrice = useSelector(state => state.CartReducer.payPrice)
     const dispatch = useDispatch()
     const location = useLocation()
     const navigate = useNavigate()
@@ -43,12 +44,12 @@ export const MainButtonContainer = () => {
             }
             case 'PAY_ORDER': {
                 setMainButtonSettings({
-                    text: "Pay $999",
+                    text: `PAY $${payPrice}`,
                     show: true,
                     color: '#63C470',
                     textColor: '#FFFFFF',
                     callBack: () => {
-                        alert('PAY $999');
+                        alert(`PAY $${payPrice}`);
                         // dispatch(changePage(navigate, location, { path: 'Cart' }))
                         // dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'PAY_ORDER' })
                     }
@@ -75,7 +76,7 @@ export const MainButtonContainer = () => {
             })
         }
         // eslint-disable-next-line
-    }, [mainButtonType])
+    }, [mainButtonType, payPrice])
 
 
     // useEffect(() => {

@@ -5,6 +5,7 @@ import plus from './../../assets/svg/Plus.svg';
 import { useState, useEffect } from 'react';
 import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { setPayPrice } from '../../reducers/cart';
 
 const CartItem = ({ props }) => {
 
@@ -31,7 +32,7 @@ const CartItem = ({ props }) => {
         } else {
             dispatch({ type: 'EDIT_CART', payload: newCart })
         }
-
+        dispatch(setPayPrice(cart))
         // dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
 
     }
@@ -65,6 +66,7 @@ const CartItem = ({ props }) => {
             return
         }
         setCount(prev => prev - 1)
+        dispatch(setPayPrice(cart))
     }
 
     useEffect(() => {
@@ -106,7 +108,12 @@ const CartItem = ({ props }) => {
                     </div>}
             </div>
             <div className="">
-                Cost
+                {/* <div>
+                    <strong>Cost</strong>
+                </div> */}
+                <div>
+                    <span className={styles.price}>${props.item.productData.price}</span>
+                </div>
             </div>
         </div>
     )

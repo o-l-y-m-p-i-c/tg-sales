@@ -27,6 +27,7 @@ const fetchResult = {
                                             Categories: [
 
                                             ],
+                                            img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                             categorySlug: false,
                                             price: 1,
                                             salePrice: 0,
@@ -35,8 +36,7 @@ const fetchResult = {
                                         }
                                     ],
                                     categorySlug: 'Cat1-1-1-1',
-                                    price: 1,
-                                    salePrice: 0,
+                                    img: '/assets/img/1.png',
                                     description: 'Product Description',
                                     haveChilds: false
                                 }, {
@@ -44,15 +44,13 @@ const fetchResult = {
                                     title: 'ProductName2',
                                     Categories: [],
                                     categorySlug: 'Cat1-1-1-2',
-                                    price: 2,
-                                    salePrice: 0,
+                                    img: '/assets/img/1.png',
                                     description: 'Product Description',
                                     haveChilds: false
                                 }
                             ],
+                            img: '/assets/img/1.png',
                             categorySlug: 'Cat1-1-1',
-                            price: 1,
-                            salePrice: 0,
                             description: 'Product Description',
                             haveChilds: true
                         }, {
@@ -64,6 +62,7 @@ const fetchResult = {
 
                                 ],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 1,
                                 salePrice: 0,
                                 description: 'Product Description',
@@ -73,14 +72,14 @@ const fetchResult = {
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 2,
                                 salePrice: 0,
                                 description: 'Product Description',
                                 haveChilds: false
                             }],
                             categorySlug: 'Cat1-1-2',
-                            price: 2,
-                            salePrice: 0,
+                            img: '/assets/img/1.png',
                             description: 'Product Description',
                             haveChilds: false
                         }, {
@@ -91,6 +90,7 @@ const fetchResult = {
                                 Categories: [
 
                                 ],
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 categorySlug: false,
                                 price: 1,
                                 salePrice: 0,
@@ -100,6 +100,7 @@ const fetchResult = {
                                 // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 categorySlug: false,
                                 price: 2,
                                 salePrice: 0,
@@ -107,12 +108,12 @@ const fetchResult = {
                                 haveChilds: false
                             }],
                             categorySlug: 'Cat1-1-3',
-                            price: 2,
-                            salePrice: 0,
+                            img: '/assets/img/1.png',
                             description: 'Product Description',
                             haveChilds: false
                         }
                     ],
+                    img: '/assets/img/1.png',
                     haveChilds: true,
                     categorySlug: 'Cat1-1'
                 },
@@ -128,6 +129,7 @@ const fetchResult = {
                                     Categories: [
 
                                     ],
+                                    img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                     categorySlug: false,
                                     price: 1,
                                     salePrice: 0,
@@ -137,6 +139,7 @@ const fetchResult = {
                                     // id: 1,
                                     title: 'ProductName2',
                                     Categories: [],
+                                    img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                     categorySlug: false,
                                     price: 2,
                                     salePrice: 0,
@@ -145,8 +148,7 @@ const fetchResult = {
                                 }
                             ],
                             categorySlug: 'Cat1-2-1',
-                            price: 1,
-                            salePrice: 0,
+                            img: '/assets/img/1.png',
                             description: 'Product Description',
                             haveChilds: false
                         }, {
@@ -161,6 +163,7 @@ const fetchResult = {
                                 categorySlug: false,
                                 price: 1,
                                 salePrice: 0,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 description: 'Product Description',
                                 haveChilds: false
                             }, {
@@ -168,14 +171,14 @@ const fetchResult = {
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 2,
                                 salePrice: 0,
                                 description: 'Product Description',
                                 haveChilds: false
                             }],
                             categorySlug: 'Cat1-2-2',
-                            price: 2,
-                            salePrice: 0,
+                            img: '/assets/img/1.png',
                             description: 'Product Description',
                             haveChilds: false
                         }, {
@@ -187,6 +190,7 @@ const fetchResult = {
                                 Categories: [
 
                                 ],
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 categorySlug: false,
                                 price: 1,
                                 salePrice: 0,
@@ -196,6 +200,7 @@ const fetchResult = {
                                 // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 categorySlug: false,
                                 price: 2,
                                 salePrice: 0,
@@ -203,16 +208,17 @@ const fetchResult = {
                                 haveChilds: false
                             }],
                             categorySlug: 'Cat1-2-3',
-                            price: 2,
-                            salePrice: 0,
+                            img: '/assets/img/1.png',
                             description: 'Product Description',
                             haveChilds: false
                         }
                     ],
+                    img: '/assets/img/1.png',
                     haveChilds: true,
                     categorySlug: 'Cat1-2'
                 },
             ],
+            img: '/assets/img/1.png',
             haveChilds: true,
             categorySlug: 'Cat1'
         },
@@ -230,6 +236,7 @@ const fetchResult = {
                                     Categories: [
 
                                     ],
+                                    img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                     categorySlug: false,
                                     price: 1,
                                     salePrice: 0,
@@ -240,6 +247,7 @@ const fetchResult = {
                                     title: 'ProductName2',
                                     Categories: [],
                                     categorySlug: false,
+                                    img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                     price: 2,
                                     salePrice: 0,
                                     description: 'Product Description',
@@ -247,8 +255,7 @@ const fetchResult = {
                                 }
                             ],
                             categorySlug: 'Cat2-1-1',
-                            price: 1,
-                            salePrice: 0,
+                            img: null,
                             description: 'Product Description',
                             haveChilds: false
                         }, {
@@ -261,6 +268,7 @@ const fetchResult = {
 
                                 ],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 1,
                                 salePrice: 0,
                                 description: 'Product Description',
@@ -270,14 +278,14 @@ const fetchResult = {
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 2,
                                 salePrice: 0,
                                 description: 'Product Description',
                                 haveChilds: false
                             }],
                             categorySlug: 'Cat2-1-2',
-                            price: 2,
-                            salePrice: 0,
+                            img: null,
                             description: 'Product Description',
                             haveChilds: false
                         }, {
@@ -289,6 +297,7 @@ const fetchResult = {
                                 Categories: [
 
                                 ],
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 categorySlug: false,
                                 price: 1,
                                 salePrice: 0,
@@ -298,6 +307,7 @@ const fetchResult = {
                                 // id: 1,
                                 title: 'ProductName2',
                                 Categories: [],
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 categorySlug: false,
                                 price: 2,
                                 salePrice: 0,
@@ -305,12 +315,13 @@ const fetchResult = {
                                 haveChilds: false
                             }],
                             categorySlug: 'Cat2-1-3',
-                            price: 2,
-                            salePrice: 0,
+                            img: null,
                             description: 'Product Description',
                             haveChilds: false
                         }
                     ],
+                    // img: '/assets/img/1.png',
+                    img: null,
                     haveChilds: true,
                     categorySlug: 'Cat2-1'
                 },
@@ -327,6 +338,7 @@ const fetchResult = {
 
                                     ],
                                     categorySlug: false,
+                                    img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                     price: 1,
                                     salePrice: 0,
                                     description: 'Product Description',
@@ -335,6 +347,7 @@ const fetchResult = {
                                     // id: 1,
                                     title: 'ProductName2',
                                     Categories: [],
+                                    img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                     categorySlug: false,
                                     price: 2,
                                     salePrice: 0,
@@ -343,8 +356,7 @@ const fetchResult = {
                                 }
                             ],
                             categorySlug: 'Cat1-2-1',
-                            price: 1,
-                            salePrice: 0,
+                            img: '/assets/img/1.png',
                             description: 'Product Description',
                             haveChilds: false
                         }, {
@@ -357,6 +369,7 @@ const fetchResult = {
 
                                 ],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 1,
                                 salePrice: 0,
                                 description: 'Product Description',
@@ -366,14 +379,14 @@ const fetchResult = {
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 2,
                                 salePrice: 0,
                                 description: 'Product Description',
                                 haveChilds: false
                             }],
                             categorySlug: 'Cat1-2-2',
-                            price: 2,
-                            salePrice: 0,
+                            img: '/assets/img/1.png',
                             description: 'Product Description',
                             haveChilds: false
                         }, {
@@ -386,6 +399,7 @@ const fetchResult = {
 
                                 ],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 1,
                                 salePrice: 0,
                                 description: 'Product Description',
@@ -395,24 +409,27 @@ const fetchResult = {
                                 title: 'ProductName2',
                                 Categories: [],
                                 categorySlug: false,
+                                img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                                 price: 2,
                                 salePrice: 0,
                                 description: 'Product Description',
                                 haveChilds: false
                             }],
                             categorySlug: 'Cat1-2-3',
-                            price: 2,
-                            salePrice: 0,
+                            img: '/assets/img/1.png',
                             description: 'Product Description',
                             haveChilds: false
                         }
                     ],
+                    img: '/assets/img/1.png',
                     haveChilds: true,
                     categorySlug: 'Cat2-2'
                 },
             ],
+            img: '/assets/img/1.png',
             haveChilds: true,
-            categorySlug: 'Cat2'
+            categorySlug: 'Cat2',
+
         },
         {
             Categories: [
@@ -421,6 +438,8 @@ const fetchResult = {
                     title: 'ProductName1',
                     Categories: [],
                     categorySlug: false,
+                    // img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
+                    img: null,
                     price: 1,
                     salePrice: 0,
                     description: 'Product Description',
@@ -429,6 +448,7 @@ const fetchResult = {
                     // id: 7,
                     title: 'ProductName2',
                     Categories: [],
+                    img: ['/assets/img/1.png', '/assets/img/1.png', '/assets/img/1.png'],
                     categorySlug: false,
                     price: 2,
                     salePrice: 0,
@@ -436,6 +456,7 @@ const fetchResult = {
                     haveChilds: false
                 }
             ],
+            img: '/assets/img/1.png',
             haveChilds: false,
             categorySlug: 'Cat3'
 

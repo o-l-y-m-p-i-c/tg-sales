@@ -23,7 +23,7 @@ const CategorieItem = ({ props }) => {
     return <>
         <div className={styles.productWrap} >
             <div className={styles.productImgWrap} onClick={redirect2}>
-                <img className={styles.productImg} src="/assets/img/1.png" alt="" />
+                <img className={styles.productImg} src={props.item.img ? props.item.img : '/assets/img/default.png'} alt="" />
             </div>
             <h3 className={styles.productTitle} onClick={redirect2}>
                 {props.item.categorySlug}

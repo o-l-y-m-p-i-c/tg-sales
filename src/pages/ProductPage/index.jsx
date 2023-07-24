@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import Carusel from '../../components/Carusel';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { setPayPrice } from '../../reducers/cart';
 
 
 export const ProductPage = () => {
@@ -41,10 +42,11 @@ export const ProductPage = () => {
         } else {
             dispatch({ type: 'EDIT_CART', payload: newCart })
         }
+        dispatch(setPayPrice(cart))
         dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'VIEW_ORDER' })
 
 
-
+        // dispatch(setPayPrice(cart))
     }
 
     const handleDelete = () => {
@@ -80,6 +82,7 @@ export const ProductPage = () => {
             return
         }
         setCount(prev => prev - 1)
+        dispatch(setPayPrice(cart))
     }
 
     const [pageHeight, setPageHeight] = useState(0)
@@ -93,7 +96,6 @@ export const ProductPage = () => {
     useEffect(() => {
         setPageHeight(prev => containerRef.current.scrollHeight + 100)
 
-        // console.log(containerRef.current)
 
         window.addEventListener("resize", resize);
         return () => window.removeEventListener("resize", resize);
@@ -168,7 +170,7 @@ export const ProductPage = () => {
             style={{ overflow: 'hidden' }}
         >
             <div className={styles.container} ref={containerRef}>
-                <Carusel props={{ slidesPerView: 1, result: [{}, {}] }} />
+                <Carusel props={{ slidesPerView: 1, result: (productData && productData.img && productData.img.length > 0) ? productData.img : ['/assets/img/default.png'] }} />
                 <div className={styles.productContent} >
 
 
@@ -176,7 +178,7 @@ export const ProductPage = () => {
                         {productData ? productData.title : ''}
                     </h2>
                     <p className={styles.productCost}>
-                        $00.00
+                        ${productData ? productData.price : ''}
                     </p>
                     <div className={styles.productBtnInner}>
                         <button className={styles.productBtnMinus} onClick={handleDelete}>
