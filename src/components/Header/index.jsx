@@ -13,6 +13,7 @@ export const Header = () => {
     const dispatch = useDispatch()
     const cart = useSelector(state => state.CartReducer.cart)
     const fetchedShop = useSelector(state => state.ApplicationReducer.fetchedShop)
+    //   eslint-disable-next-line
     const [isBrowser, setIsBrowser] = useState(false)
 
     const handleGoForward = (e) => {
