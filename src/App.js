@@ -42,7 +42,7 @@ function App() {
 
   function init() {
     // navigate('/Categories')
-    window.Telegram.WebApp.ready();
+    // window.Telegram.WebApp.ready();
   }
 
 

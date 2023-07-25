@@ -13,9 +13,10 @@
 .editButton {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: transparent;
-    color: #5CB253;
+    color: var(--accent-color);
     padding-right: 0;
 }
 
@@ -33,7 +34,8 @@
     border: none;
     height: auto;
     min-height: fit-content;
-    color: #9A9DA1;
+    color: var(--placeholder-color);
+    background-color: var(--bg-color);
     font-family: var(--default-font);
     resize: none;
     outline: none;
@@ -42,7 +44,7 @@
 
 .cartWrap,
 .cartCommentWrap {
-    background-color: white;
+    background-color: var(--bg-color);
     padding: 0 10px;
 }
 

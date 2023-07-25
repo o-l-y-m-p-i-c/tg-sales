@@ -4,7 +4,7 @@ import { CategoriePage } from "./pages/CategoriePage"
 import { ProductListPage } from "./pages/ProductListPage";
 import { ProductPage } from './pages/ProductPage/index';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // eslint-disable-next-line
 const fetchResult = {
@@ -498,6 +498,7 @@ export const Routing = () => {
 
     const dispatch = useDispatch()
     const data = useSelector(state => state.ApplicationReducer.fetchedShop)
+    const [loaded, setLoaded] = useState(false)
 
 
     const init = () => {
@@ -512,16 +513,18 @@ export const Routing = () => {
 
 
     useEffect(() => {
-        window.Telegram.WebApp.ready();
         init()
         // eslint-disable-next-line
     }, [data])
 
-
+    useEffect(() => {
+        setLoaded(true)
+        document.querySelector('.card-wrap').remove()
+    }, [])
 
     return (
         <>
-            <Routes>
+            {loaded && <Routes>
 
                 {(data && data.haveChilds) ? (
                     <>
@@ -543,7 +546,7 @@ export const Routing = () => {
                 <Route path="/ProductList" element={<ProductListPage />} />
                 <Route path="/Cart" element={<CartPage />} />
 
-            </Routes>
+            </Routes>}
         </>
     )
 }

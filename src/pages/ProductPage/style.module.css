@@ -63,6 +63,8 @@
 
 .productCost {
     font-weight: 700;
+    margin: 0;
+    padding-bottom: 15px;
 }
 
 .productDescription {

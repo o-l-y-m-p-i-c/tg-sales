@@ -29,7 +29,7 @@
 
 .productBtnMinus:active,
 .productBtnPlus:active {
-    background-color: #c2a46d;
+    background-color: var(--main-color);
 }
 
 .cartItemImgWrap img {
