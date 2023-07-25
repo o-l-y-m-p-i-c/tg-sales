@@ -29,6 +29,7 @@
       document.documentElement.className = Telegram.WebApp.colorScheme;
     }
     window.onload = () => {
+      Telegram.WebView.onEvent('theme_changed', setThemeClass);
       setThemeClass();
       Telegram.WebApp.ready();
     }
