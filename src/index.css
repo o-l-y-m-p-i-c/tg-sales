@@ -72,3 +72,8 @@ h6 {
   margin: 0;
   padding: 15px 0;
 }
+
+.swiper-slide img {
+  max-height: 300px;
+  object-fit: contain;
+}

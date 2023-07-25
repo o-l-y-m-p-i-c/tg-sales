@@ -48,7 +48,7 @@ export const Header = () => {
                     <li style={{ color: 'var(--text-color)' }} to="Cart" onClick={handleGoForward}>Cart</li>
                 </ul>
             </header>
-            {navLength > 0 && isBrowser && <button style={{ borderRadius: 0 }} onClick={handleGoBack}>back</button>}
+            {/* {navLength > 0 && isBrowser && <button style={{ borderRadius: 0 }} onClick={handleGoBack}>back</button>} */}
             {navLength > 0 && <BackButton onClick={handleGoBack} />}
         </>
     )

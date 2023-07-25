@@ -102,7 +102,7 @@ export const MainButtonContainer = () => {
 
     return (
         <>
-            {mainButtonSettings.show && <button onClick={mainButtonSettings.callBack} style={{ color: mainButtonSettings.textColor, background: mainButtonSettings.color, borderRadius: 0 }}>{mainButtonSettings.text}</button>}
+            {/* {mainButtonSettings.show && <button onClick={mainButtonSettings.callBack} style={{ color: mainButtonSettings.textColor, background: mainButtonSettings.color, borderRadius: 0 }}>{mainButtonSettings.text}</button>} */}
             {mainButtonSettings.show && <MainButton text={mainButtonSettings.text} onClick={mainButtonSettings.callBack} textColor={mainButtonSettings.textColor} color={mainButtonSettings.color} />}
 
         </>

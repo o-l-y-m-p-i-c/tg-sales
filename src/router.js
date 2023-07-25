@@ -509,6 +509,10 @@ export const Routing = () => {
             navigate('/ProductList')
         }
         dispatch({ type: 'INIT_SHOP', payload: fetchResult })
+        if (document.querySelector('.card-wrap')) {
+            document.querySelector('.card-wrap').remove()
+            setLoaded(true)
+        }
     }
 
 
@@ -517,10 +521,7 @@ export const Routing = () => {
         // eslint-disable-next-line
     }, [data])
 
-    useEffect(() => {
-        setLoaded(true)
-        document.querySelector('.card-wrap').remove()
-    }, [])
+
 
     return (
         <>
