@@ -10,13 +10,11 @@ const CategorieItem = ({ props }) => {
     const cart = useSelector(state => state.CartReducer.cart)
 
     const redirect2 = () => {
-        console.log(props.item.haveChilds)
         if (props.item.haveChilds === false) {
             dispatch(changePage(navigate, location, cart, { path: 'ProductList', params: props.item.categorySlug }))
         } else {
             dispatch(changePage(navigate, location, cart, { path: 'Categories', params: props.item.categorySlug }))
         }
-
     }
 
 

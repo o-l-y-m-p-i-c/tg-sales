@@ -8,9 +8,7 @@ export const CartPage = () => {
 
     const [pageHeight, setPageHeight] = useState(0)
     const dispatch = useDispatch()
-    const [cartState, setCartState] = useState({
-        result: []
-    })
+
     const [editCart, setEditCart] = useState(false)
 
     const containerRef = useRef(null)
@@ -31,11 +29,6 @@ export const CartPage = () => {
 
 
     useEffect(() => {
-        if (cart) {
-            setCartState({ ...cartState, result: cart })
-
-
-        }
 
         if (cart.length === 0) {
             dispatch({ type: 'EDIT_MAIN_BUTTON', payload: 'HIDDEN' })
@@ -60,12 +53,12 @@ export const CartPage = () => {
                         <h2>
                             Your order
                         </h2>
-                        {cartState.result.length > 0 && <button onClick={() => setEditCart(!editCart)} className={styles.editButton}>
+                        {cart.length > 0 && <button onClick={() => setEditCart(!editCart)} className={styles.editButton}>
                             Edit
                         </button>}
                     </div>
                     <div className={`container ${styles.cartList}`}>
-                        {cartState.result.map((item, index) => <CartItem key={index} props={{ item, editCart }} />)}
+                        {cart.map((item, index) => <CartItem props={{ item, editCart }} />)}
                     </div>
                 </div>
                 <div className={styles.cartCommentWrap}>
